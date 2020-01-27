@@ -1,0 +1,13 @@
+class ArithmeticOperator {
+    public static void main(String[] args) {
+    	
+    	String start, middle, end, result;
+    	
+    	start = "Welcome to Hexaware";
+    	middle = "I am Paromita Saha ";
+    	end = "From MLP178";
+    	
+    	result = start + middle + end;
+    	System.out.println(result);
+    }
+}
