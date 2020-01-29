@@ -3,6 +3,7 @@ package com.hexaware.MLP178.persistence;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.hexaware.MLP178.model.MenuCat;
 import com.hexaware.MLP178.model.Menu;
 
 import org.skife.jdbi.v2.tweak.ResultSetMapper;
@@ -23,6 +24,10 @@ public class MenuMapper implements ResultSetMapper<Menu> {
       /**
        * @return Menu
        */
-    return new Menu(rs.getInt("food_id"));
+    String category = rs.getString("MEN_CAT");
+    MenuCat mcat = MenuCat.valueOf(category);
+    return new Menu(rs.getInt("MEN_ID"), mcat, rs.getString("Men_Item"),
+    rs.getInt("Men_Quantity"), rs.getInt("Men_Cost"), rs.getInt("Men_Calories"),
+    rs.getString("Men_Reviews"));
   }
 }

@@ -1,59 +1,46 @@
 package com.hexaware.MLP178.model;
 import java.util.Objects;
-
 /**
  * Menu class used to display menu information.
- * @author hexware
+ * @author paromita
  */
 public class Vendor {
-
 /**
- * vendorId to store vendorId.
+ * venId to store vendor id.
  */
-  private int vendorId;
+  private int venId;
+/**
+ * venName to store vendor name.
+ */
+  private String venName;
+/**
+ * venUsername to store vendor username.
+ */
+  private String venUsername;
+/**
+ * venPhno to store vendor phn no.
+ */
+  private String venPhno;
   /**
- * vendorName to store vendorname.
+ * venEmail to store vendor email.
  */
-  private String vendorName;
+  private String venEmail;
   /**
- * vendorUsername to store username.
+ * venPassword to customer password.
  */
-  private String vendorUsername;
-  /**
- * vendorNumber to store phone number.
- */
-  private String vendorNumber;
-  /**
- * vendorEmail to store email.
- */
-  private String vendorEmail;
-  /**
- * vendorPassword to store password.
- */
-  private String vendorPassword;
+  private String venPassword;
   /**
    * Default Constructor.
    */
   public Vendor() {
 
   }
-/**
- * @param argVendorId to initialize vendor id.
+  /**
+ * @param argVenId to initialize food id.
  * used to get details through constructor.
-  * @param argVendorName to initialize food price.
- * @param argVendorUsername to initialize food Detail.
- * @param argVendorNumber to initialize food Status.
- * @param argVendorEmail to initialize food Rating.
- * @param argVendorPassword to initialize food Rating.
  */
-  public Vendor(final int argVendorId, final String argVendorName, final String argVendorUsername, final String argVendorNumber,
-      final String argVendorEmail, final String argVendorPassword) {
-    this.vendorId = argVendorId;
-    this.vendorName = argVendorName;
-    this.vendorUsername = argVendorUsername;
-    this.vendorNumber = argVendorNumber;
-    this.vendorEmail = argVendorEmail;
-    this.vendorPassword = argVendorPassword;
+  public Vendor(final int argVenId) {
+    this.venId = argVenId;
   }
   @Override
     public final boolean equals(final Object obj) {
@@ -64,90 +51,85 @@ public class Vendor {
       return false;
     }
     Vendor vendor = (Vendor) obj;
-    if (Objects.equals(vendorId, vendor.vendorId)) {
+    if (Objects.equals(venId, vendor.venId)) {
       return true;
     }
     return false;
   }
   @Override
     public final int hashCode() {
-    return Objects.hash(vendorId);
+    return Objects.hash(venId);
   }
-  @Override
-    public final String toString() {
-    return String.format("%15s %15s %15s %15s %15s %15s", vendorId, vendorName, vendorUsername,
-    vendorNumber, vendorEmail, vendorPassword);
+  /**
+     * @return this customer ID.
+     */
+  public final int getVenId() {
+    return venId;
+  }
+            /**
+             * @param argVenId gets the vendor id.
+             */
+  public final void setVenId(final int argVenId) {
+    this.venId = argVenId;
+  }
+          /**
+             * @return this Vendor name.
+             */
+  public final String getVenName() {
+    return venName;
+  }
+          /**
+             * @param argVenName gets the vendor name.
+             */
+  public final void setVenName(final String argVenName) {
+    this.venName = argVenName;
+  }
+            /**
+             * @return this vendor username.
+             */
+  public final String getVenUsername() {
+    return venUsername;
+  }
+          /**
+           * @param argVenUsername gets the vendor username.
+           */
+  public final void setVenUsername(final String argVenUsername) {
+    this.venUsername = argVenUsername;
+  }
+           /**
+             * @return this vendor phn no.
+             */
+  public final String getVenPhno() {
+    return venPhno;
+  }
+          /**
+           * @param argVenPhno gets the vendor phn no.
+           */
+  public final void setVenPhno(final String argVenPhno) {
+    this.venPhno = argVenPhno;
+  }
+/**
+* @return this vendor username.
+ */
+  public final String getVenEmail() {
+    return venEmail;
   }
     /**
-     * @return this food ID.
-     */
-  public final int getVendorId() {
-    return vendorId;
+     * @param argVenEmail gets the vendor username.
+    */
+  public final void setVenEmail(final String argVenEmail) {
+    this.venEmail = argVenEmail;
   }
-    /**
-     * @param argVendorId gets the food id.
-     */
-  public final void setVendorId(final int argVendorId) {
-    this.vendorId = argVendorId;
+          /**
+             * @return this vendor password.
+             */
+  public final String getVenPassword() {
+    return venPassword;
   }
-  /**
-     * @return this vendorname.
-     */
-  public final String getVendorName() {
-    return vendorName;
-  }
-  /**
-     * @param argVendorName gets the NAME.
-     */
-  public final void setVendorName(final String argVendorName) {
-    this.vendorName = argVendorName;
-  }
-    /**
-     * @return this username.
-     */
-  public final String getVendorUsername() {
-    return vendorUsername;
-  }
-  /**
-   * @param argVendorUsername gets the username.
-   */
-  public final void setVendorUsername(final String argVendorUsername) {
-    this.vendorUsername = argVendorUsername;
-  }
-   /**
-     * @return this NUMBER.
-     */
-  public final String getVendorNumber() {
-    return vendorNumber;
-  }
-  /**
-   * @param argVendorNumber gets the number.
-   */
-  public final void setVendorNumber(final String argVendorNumber) {
-    this.vendorNumber = argVendorNumber;
-  }
-  /**
-     * @return this eamil adderss.
-     */
-  public final String getVendorEmail() {
-    return vendorEmail;
-  }
-  /**
-   * @param argVendorEmail gets the email address.
-   */
-  public final void setVendorEmail(final String argVendorEmail) {
-    this.vendorEmail = argVendorEmail;
-  }
-  /**
-     * @return this password.
-     */
-  public final String getVendorPassword() {
-    return vendorPassword;
-  }
-  /**
-   * @param argVendorPassword gets the password.
-   */
-  public final void setVendorPassword(final String argVendorPassword) {
-    this.vendorPassword = argVendorPassword;
+          /**
+           * @param argVenPassword gets the Vendor password.
+           */
+  public final void setVenPassword(final String argVenPassword) {
+    this.venPassword = argVenPassword;
   }
 }

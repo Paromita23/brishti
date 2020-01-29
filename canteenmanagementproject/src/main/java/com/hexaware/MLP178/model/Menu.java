@@ -8,17 +8,17 @@ import java.util.Objects;
 public class Menu {
 
 /**
- * foodId to store foodId.
+ * menuId to store menuId.
  */
-  private int foodId;
+  private int menuId;
   /**
  * menuCat to store menu category.
  */
-  private String menuCat;
+  private MenuCat menuCat;
   /**
  * menuItem to store food name.
  */
-  private int menuItem;
+  private String menuItem;
   /**
  * menuQuatity to store quantity.
  */
@@ -34,7 +34,7 @@ public class Menu {
    /**
  * menuReviews to store food reviews.
  */
-  private int menuReviews;
+  private String menuReviews;
   /**
    * Default Constructor.
    */
@@ -42,12 +42,27 @@ public class Menu {
 
   }
 /**
- * @param argFoodId to initialize food id.
+ * @param argMenuId to initialize food id.
+ * used to get details through constructor.
+  * @param argMenuCat to initialize food price.
+ * @param argMenuItem to initialize food Detail.
+ * @param argMenuQuantity to initialize food Status.
+ * @param argMenuCost to initialize food Rating.
+ * @param argMenuCalories to initialize food Rating.
+ * @param argMenuReviews to initialize food Rating.
  * used to get details through constructor.
  */
-  public Menu(final int argFoodId) {
-    this.foodId = argFoodId;
+  public Menu(final int argMenuId, final MenuCat argMenuCat, final String argMenuItem,
+        final int argMenuQuantity, final int argMenuCost, final int argMenuCalories, final String argMenuReviews) {
+    this.menuId = argMenuId;
+    this.menuCat = argMenuCat;
+    this.menuItem = argMenuItem;
+    this.menuQuantity = argMenuQuantity;
+    this.menuCost = argMenuCost;
+    this.menuCalories = argMenuCalories;
+    this.menuReviews = argMenuReviews;
   }
+
   @Override
     public final boolean equals(final Object obj) {
     if (obj == null) {
@@ -57,49 +72,54 @@ public class Menu {
       return false;
     }
     Menu menu = (Menu) obj;
-    if (Objects.equals(foodId, menu.foodId)) {
+    if (Objects.equals(menuId, menu.menuId)) {
       return true;
     }
     return false;
   }
   @Override
     public final int hashCode() {
-    return Objects.hash(foodId);
+    return Objects.hash(menuId);
+  }
+  @Override
+    public final String toString() {
+    return String.format("%15s %15s %15s %15s %15s %15s %15s", menuId, menuCat, menuItem,
+     menuQuantity,  menuCost, menuCalories, menuReviews);
   }
     /**
      * @return this food ID.
      */
-  public final int getFoodId() {
-    return foodId;
+  public final int getMenuId() {
+    return menuId;
   }
     /**
-     * @param argFoodId gets the food id.
+     * @param argMenuId gets the food id.
      */
-  public final void setFoodId(final int argFoodId) {
-    this.foodId = argFoodId;
+  public final void setMenuId(final int argMenuId) {
+    this.menuId = argMenuId;
   }
   /**
      * @return this menu category.
      */
-  public final String getMenuCat() {
+  public final MenuCat getMenuCat() {
     return menuCat;
   }
   /**
      * @param argMenuCat gets the menu category1.
      */
-  public final void setMenuCat(final String argMenuCat) {
+  public final void setMenuCat(final MenuCat argMenuCat) {
     this.menuCat = argMenuCat;
   }
     /**
      * @return this menu item.
      */
-  public final int getMenuItem() {
+  public final String getMenuItem() {
     return menuItem;
   }
   /**
    * @param argMenuItem gets the menu item.
    */
-  public final void setMenuItem(final int argMenuItem) {
+  public final void setMenuItem(final String argMenuItem) {
     this.menuItem = argMenuItem;
   }
    /**
@@ -141,13 +161,13 @@ public class Menu {
   /**
      * @return this menu reviews.
      */
-  public final int getMenuReviews() {
+  public final String getMenuReviews() {
     return menuReviews;
   }
   /**
    * @param argMenuReviews gets the menu reviews.
    */
-  public final void setMenuReviews(final int argMenuReviews) {
+  public final void setMenuReviews(final String argMenuReviews) {
     this.menuReviews = argMenuReviews;
   }
 }

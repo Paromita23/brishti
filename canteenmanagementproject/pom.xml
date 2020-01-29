@@ -98,7 +98,7 @@
             <systemPropertyVariables>
               <coverage-output>html</coverage-output>
               <coverage-metrics>all</coverage-metrics>
-              <coverage-classes>com.hexaware.MLP178.model.*</coverage-classes>
+              <coverage-classes>com.hexaware.MLP178.factory.*</coverage-classes>
               <coverage-check>85</coverage-check>
             </systemPropertyVariables>
           </configuration>
@@ -156,7 +156,7 @@
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>8.0.18</version>
+      <version>8.0.18 </version>
     </dependency>
     <dependency>
       <groupId>org.projectlombok</groupId>

@@ -1,40 +1,38 @@
 package com.hexaware.MLP178.model;
 import java.util.Objects;
-
 /**
  * Menu class used to display menu information.
- * @author hexware
+ * @author paromita
  */
 public class Customer {
-
 /**
- * customerId to store customerId.
+ * cusId to store cutomer id.
  */
-  private int customerId;
+  private int cusId;
+/**
+ * cusName to store customer name.
+ */
+  private String cusName;
+/**
+ * cusEmail to store customer email.
+ */
+  private String cusEmail;
+/**
+ * cusPhno to store customer phn no.
+ */
+  private String cusPhno;
   /**
- * customerName to store customer name.
+ * cusAddress to store customer address.
  */
-  private String customerName;
+  private String cusAddress;
   /**
- * customerEmail to store mailid.
+ * cusPassword to customer password.
  */
-  private String customerEmail;
-  /**
- * customerNumber to store phone number.
- */
-  private String customerNumber;
-  /**
- * customerAddress to store address.
- */
-  private String customerAddress;
-  /**
- * customerPassword to store password.
- */
-  private String customerPassword;
+  private String cusPassword;
    /**
- * customerUsername to store username.
+ * cusUsername to store customer username.
  */
-  private String customerUsername;
+  private String cusUsername;
   /**
    * Default Constructor.
    */
@@ -42,26 +40,11 @@ public class Customer {
 
   }
 /**
- * @param argCustomerId to initialize customer id.
- * used to get details through constructor.
- * @param argCustomerName to initialize food price.
- * @param argCustomerEmail to initialize food Detail.
- * @param argCustomerNumber to initialize food Status.
- * @param argCustomerAddress to initialize food Rating.
- * @param argCustomerPassword to initialize food Rating.
- * @param argCustomerUsername to initialize food Rating.
+ * @param argCusId to initialize food id.
  * used to get details through constructor.
  */
-  public Customer(final int argCustomerId, final String argCustomerName, final String argCustomerEmail,
-        final String argCustomerNumber, final String argCustomerAddress, final String argCustomerPassword,
-      final String argCustomerUsername) {
-    this.customerId = argCustomerId;
-    this.customerName = argCustomerName;
-    this.customerEmail = argCustomerEmail;
-    this.customerNumber = argCustomerNumber;
-    this.customerAddress = argCustomerAddress;
-    this.customerPassword = argCustomerPassword;
-    this.customerUsername = argCustomerUsername;
+  public Customer(final int argCusId) {
+    this.cusId = argCusId;
   }
   @Override
     public final boolean equals(final Object obj) {
@@ -72,102 +55,97 @@ public class Customer {
       return false;
     }
     Customer customer = (Customer) obj;
-    if (Objects.equals(customerId, customer.customerId)) {
+    if (Objects.equals(cusId, customer.cusId)) {
       return true;
     }
     return false;
   }
   @Override
     public final int hashCode() {
-    return Objects.hash(customerId);
-  }
-  @Override
-  public final String toString() {
-    return String.format("%10s %10s %10s %10s %10s %10s %10s", customerId, customerName, customerEmail,
-     customerNumber,  customerAddress, customerPassword, customerUsername);
-  }
-    /**
-     * @return this food ID.
-     */
-  public final int getCustomerId() {
-    return customerId;
-  }
-    /**
-     * @param argCustomerId gets the food id.
-     */
-  public final void setCustomerId(final int argCustomerId) {
-    this.customerId = argCustomerId;
-  }
-  /**
-     * @return this cus name.
-     */
-  public final String getCustomerName() {
-    return customerName;
-  }
-  /**
-     * @param argCustomerName gets the NAME.
-     */
-  public final void setCustomerName(final String argCustomerName) {
-    this.customerName = argCustomerName;
-  }
-    /**
-     * @return this EMAIL.
-     */
-  public final String getCustomerEmail() {
-    return customerEmail;
-  }
-  /**
-   * @param argCustomerEmail gets the EMAIL.
-   */
-  public final void setCustomerEmail(final String argCustomerEmail) {
-    this.customerEmail = argCustomerEmail;
+    return Objects.hash(cusId);
   }
    /**
-     * @return this NUMBER.
+     * @return this customer ID.
      */
-  public final String getCustomerNumber() {
-    return customerNumber;
+  public final int getCusId() {
+    return cusId;
   }
-  /**
-   * @param argCustomerNumber gets the number.
-   */
-  public final void setCustomerNumber(final String argCustomerNumber) {
-    this.customerNumber = argCustomerNumber;
+        /**
+         * @param argCusId gets the customer id.
+         */
+  public final void setCusId(final int argCusId) {
+    this.cusId = argCusId;
   }
-  /**
-     * @return this adderss.
-     */
-  public final String getCustomerAddress() {
-    return customerAddress;
+      /**
+         * @return this Customer name.
+         */
+  public final String getCusName() {
+    return cusName;
   }
-  /**
-   * @param argCustomerAddress gets the address.
-   */
-  public final void setCustomerAddress(final String argCustomerAddress) {
-    this.customerAddress = argCustomerAddress;
+      /**
+         * @param argCusName gets the customer name.
+         */
+  public final void setCusName(final String argCusName) {
+    this.cusName = argCusName;
   }
-  /**
-     * @return this password.
-     */
-  public final String getCustomerPassword() {
-    return customerPassword;
+        /**
+         * @return this customer email.
+         */
+  public final String getCusEmail() {
+    return cusEmail;
   }
-  /**
-   * @param argCustomerPassword gets the password.
-   */
-  public final void setCustomerPassword(final String argCustomerPassword) {
-    this.customerPassword = argCustomerPassword;
+      /**
+       * @param argCusEmail gets the customer email.
+       */
+  public final void setMenuItem(final String argCusEmail) {
+    this.cusEmail = argCusEmail;
   }
-  /**
-     * @return this username.
-     */
-  public final String getCustomerUsername() {
-    return customerUsername;
+       /**
+         * @return this customer phn no.
+         */
+  public final String getCusPhno() {
+    return cusPhno;
   }
-  /**
-   * @param argCustomerUsername gets the USERNAME.
-   */
-  public final void setCustomerUsername(final String argCustomerUsername) {
-    this.customerUsername = argCustomerUsername;
+      /**
+       * @param argCusPhno gets the customer phn no.
+       */
+  public final void setCusPhno(final String argCusPhno) {
+    this.cusPhno = argCusPhno;
+  }
+      /**
+         * @return this customer address.
+         */
+  public final String getCusAddress() {
+    return cusAddress;
+  }
+      /**
+       * @param argCusAddress gets the customer address.
+       */
+  public final void setCusAddress(final String argCusAddress) {
+    this.cusAddress = argCusAddress;
+  }
+      /**
+         * @return this customer password.
+         */
+  public final String getCusPassword() {
+    return cusPassword;
+  }
+      /**
+       * @param argCusPassword gets the menu Quantity.
+       */
+  public final void setCusPassword(final String argCusPassword) {
+    this.cusPassword = argCusPassword;
+  }
+      /**
+         * @return this customer username.
+         */
+  public final String getCusUsername() {
+    return cusUsername;
+  }
+      /**
+       * @param argCusUsername gets the customer username.
+       */
+  public final void setCusUsername(final String argCusUsername) {
+    this.cusUsername = argCusUsername;
   }
 }
