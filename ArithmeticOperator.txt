@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class ArithmeticOperator {
     public static void main(String[] args) {
     	
@@ -10,4 +11,18 @@ class ArithmeticOperator {
     	result = start + middle + end;
     	System.out.println(result);
     }
+=======
+class ArithmeticOperator {
+    public static void main(String[] args) {
+    	
+    	String start, middle, end, result;
+    	
+    	start = "Welcome to Hexaware";
+    	middle = "I am Paromita Saha ";
+    	end = "From MLP178";
+    	
+    	result = start + middle + end;
+    	System.out.println(result);
+    }
+>>>>>>> 22cc0e1bffcf3bc802af6909eb8eb2a884ff1ee4
 }

@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 class CharExample {
     public static void main(String[] args) {
     	
     	char letter = '\u0051';
     	System.out.println(letter);
     }
+=======
+class CharExample {
+    public static void main(String[] args) {
+    	
+    	char letter = '\u0051';
+    	System.out.println(letter);
+    }
+>>>>>>> 22cc0e1bffcf3bc802af6909eb8eb2a884ff1ee4
 }
