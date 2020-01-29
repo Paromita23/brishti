@@ -1,7 +1,7 @@
 
-package com.hexaware.MLP178.factory;
-import com.hexaware.MLP178.persistence.WalletDAO;
-import com.hexaware.MLP178.model.Wallet;
+package com.hexaware.mlp178.factory;
+import com.hexaware.mlp178.persistence.WalletDAO;
+import com.hexaware.mlp178.model.Wallet;
 import static org.junit.Assert.assertEquals;
 //import static org.junit.Assert.assertFalse;
 //import static org.junit.Assert.assertTrue;
@@ -16,7 +16,7 @@ import org.junit.Test;
 //import org.junit.Before;
 import org.junit.runner.RunWith;
 import java.util.ArrayList;
-import com.hexaware.MLP178.model.WalletType;
+import com.hexaware.mlp178.model.WalletType;
 
 import mockit.Expectations;
 import mockit.MockUp;

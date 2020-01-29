@@ -1,10 +1,10 @@
-package com.hexaware.MLP178.factory;
+package com.hexaware.mlp178.factory;
 
-import com.hexaware.MLP178.persistence.CustomerDAO;
-import com.hexaware.MLP178.persistence.DbConnection;
+import com.hexaware.mlp178.persistence.CustomerDAO;
+import com.hexaware.mlp178.persistence.DbConnection;
 import java.util.List;
 
-import com.hexaware.MLP178.model.Customer;
+import com.hexaware.mlp178.model.Customer;
 /**
  * MenuFactory class used to fetch menu data from database.
  * @author hexware

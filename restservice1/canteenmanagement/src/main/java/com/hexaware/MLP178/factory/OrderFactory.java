@@ -113,16 +113,26 @@ public class OrderFactory {
    */
   public static String cancelOrder(final int orderId, final int custId, final String status) {
     Orders order = dao().findByOrderId(orderId);
+    int customerId = order.getCustomerId();
+    OrderStatus ostat = order.getOrderStatus();
     String result = "";
     if (order != null) {
-      if (status.equals("YES")) {
-        String st = "REJECTED";
-        dao().acceptOrReject(st, orderId);
-        double billAmount = order.getOrderTotalamount();
-        WalletType type = order.getWalletType();
-        billAmount = billAmount - (billAmount / 10);
-        dao().refundAmount(billAmount, type, custId);
-        result = ("Order Cancelled Successfully and Amount refunded to " + type);
+      if (ostat == OrderStatus.PENDING) {
+        if (customerId == custId) {
+          if (status.equals("YES")) {
+            String st = "REJECTED";
+            dao().acceptOrReject(st, orderId);
+            double billAmount = order.getOrderTotalamount();
+            WalletType type = order.getWalletType();
+            billAmount = billAmount - (billAmount / 10);
+            dao().refundAmount(billAmount, type, custId);
+            result = ("Order Cancelled Successfully and Amount refunded to " + type);
+          }
+        } else {
+          result = "you are unauhtorized to cancel...";
+        }
+      } else {
+        result = "you cant cancel the order";
       }
     } else {
       result = "Invalid OrderId...";

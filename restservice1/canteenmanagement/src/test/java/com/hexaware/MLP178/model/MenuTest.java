@@ -1,7 +1,7 @@
-package com.hexaware.MLP178.model;
+package com.hexaware.mlp178.model;
 
-//import com.hexaware.MLP178.persistence.MenuDAO;
-//import com.hexaware.MLP178.factory.MenuFactory;
+//import com.hexaware.mlp178.persistence.MenuDAO;
+//import com.hexaware.mlp178.factory.MenuFactory;
 import static org.junit.Assert.assertEquals;
 //import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertFalse;

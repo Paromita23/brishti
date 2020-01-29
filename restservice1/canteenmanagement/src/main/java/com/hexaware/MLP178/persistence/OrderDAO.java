@@ -1,12 +1,12 @@
-package com.hexaware.MLP178.persistence;
+package com.hexaware.mlp178.persistence;
 import org.skife.jdbi.v2.sqlobject.SqlQuery;
 import org.skife.jdbi.v2.sqlobject.customizers.Mapper;
 import java.util.List;
 import org.skife.jdbi.v2.sqlobject.Bind;
-import com.hexaware.MLP178.model.Orders;
-import com.hexaware.MLP178.model.Menu;
-import com.hexaware.MLP178.model.Wallet;
-import com.hexaware.MLP178.model.WalletType;
+import com.hexaware.mlp178.model.Orders;
+import com.hexaware.mlp178.model.Menu;
+import com.hexaware.mlp178.model.Wallet;
+import com.hexaware.mlp178.model.WalletType;
 import org.skife.jdbi.v2.sqlobject.GetGeneratedKeys;
 import org.skife.jdbi.v2.sqlobject.SqlUpdate;
 import org.skife.jdbi.v2.sqlobject.BindBean;

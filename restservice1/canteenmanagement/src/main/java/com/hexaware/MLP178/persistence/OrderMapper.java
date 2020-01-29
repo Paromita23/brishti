@@ -1,11 +1,11 @@
-package com.hexaware.MLP178.persistence;
+package com.hexaware.mlp178.persistence;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import com.hexaware.MLP178.model.WalletType;
+import com.hexaware.mlp178.model.WalletType;
 
-import com.hexaware.MLP178.model.OrderStatus;
-import com.hexaware.MLP178.model.Orders;
+import com.hexaware.mlp178.model.OrderStatus;
+import com.hexaware.mlp178.model.Orders;
 
 import org.skife.jdbi.v2.tweak.ResultSetMapper;
 import org.skife.jdbi.v2.StatementContext;

@@ -1,20 +1,20 @@
-package com.hexaware.MLP178.util;
+package com.hexaware.mlp178.util;
 import java.util.Scanner;
 import java.io.Console;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import com.hexaware.MLP178.factory.MenuFactory;
-import com.hexaware.MLP178.model.Menu;
-import com.hexaware.MLP178.factory.VendorFactory;
-import com.hexaware.MLP178.model.Vendor;
-import com.hexaware.MLP178.factory.OrderFactory;
-import com.hexaware.MLP178.model.Orders;
-import com.hexaware.MLP178.factory.CustomerFactory;
-import com.hexaware.MLP178.model.Customer;
+import com.hexaware.mlp178.factory.MenuFactory;
+import com.hexaware.mlp178.model.Menu;
+import com.hexaware.mlp178.factory.VendorFactory;
+import com.hexaware.mlp178.model.Vendor;
+import com.hexaware.mlp178.factory.OrderFactory;
+//import com.hexaware.mlp178.model.Order;
+import com.hexaware.mlp178.factory.CustomerFactory;
+import com.hexaware.mlp178.model.Customer;
 import java.text.ParseException;
-import com.hexaware.MLP178.factory.WalletFactory;
-import com.hexaware.MLP178.model.Wallet;
-import com.hexaware.MLP178.model.WalletType;
+import com.hexaware.mlp178.factory.WalletFactory;
+import com.hexaware.mlp178.model.Wallet;
+import com.hexaware.mlp178.model.WalletType;
 /**
  * CliMain used as Client interface for java coading.
  * @author hexware

@@ -1,4 +1,4 @@
-package com.hexaware.MLP178.model;
+package com.hexaware.mlp178.model;
 import java.util.Objects;
 /**
  * wallet class used to display menu information.
