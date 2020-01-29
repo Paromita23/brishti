@@ -77,4 +77,14 @@ public class WalletTest {
     assertEquals(500.00, m.getWalletAmount(), 0);
     assertEquals(1200, m.getCustomerId());
   }
+  /**
+   * Tests the toString() methods of the Vendor class.
+   */
+  @Test
+  public final void testToString() {
+    Wallet m = new Wallet(1000, WalletType.CREDIT_CARD, 500.00, 1200);
+    String result = String.format("%20s %20s %20s %20s", m.getCustomerId(), m.getWalletId(), m.getWalletType(),
+        m.getWalletAmount());
+    assertEquals(result, m.toString());
+  }
 }

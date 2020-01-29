@@ -146,6 +146,8 @@ public class MenuTest {
         mn1[0].getFoodId());
     assertEquals(new Menu(101).getFoodId(),
         mn1[1].getFoodId());
-  }*/
+  }*//**
+  * Tests that a list with some employees is handled correctly.
+  * @param dao mocking the dao class
+  */
 }
-

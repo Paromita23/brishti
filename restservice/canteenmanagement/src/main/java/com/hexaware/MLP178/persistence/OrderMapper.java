@@ -34,4 +34,3 @@ public class OrderMapper implements ResultSetMapper<Orders> {
     rs.getDouble("ORD_TOTAL_AMT"), rs.getDate("ORD_DATE"), rs.getInt("ORD_QTY"), wtype);
   }
 }
-

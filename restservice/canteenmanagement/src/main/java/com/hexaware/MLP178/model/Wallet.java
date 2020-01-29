@@ -18,7 +18,7 @@ public class Wallet {
  */
   private Double walletAmount;
   /**
- * walletId to store walletId.
+ *customerid to store cus_Id.
  */
   private int customerId;
   /**
@@ -28,13 +28,14 @@ public class Wallet {
 
   }
 /**
- * @param argWalletId to initialize food id.
- * @param argWalletType to initialize food price.
- * @param argWalletAmount to initialize food Detail.
- * @param argCustomerId to initialize food Detail.
+ * @param argWalletId to initialize walletid.
+ * @param argWalletType to initialize type of wallet.
+ * @param argWalletAmount to initialize wallet balance.
+ * @param argCustomerId to initialize customer id..
  * used to get details through constructor.
  */
-  public Wallet(final int argWalletId, final WalletType argWalletType, final Double argWalletAmount, final int argCustomerId) {
+  public Wallet(final int argWalletId, final WalletType argWalletType, final Double argWalletAmount,
+      final int argCustomerId) {
     this.walletId = argWalletId;
     this.walletType = argWalletType;
     this.walletAmount = argWalletAmount;
@@ -58,6 +59,10 @@ public class Wallet {
   @Override
     public final int hashCode() {
     return Objects.hash(walletId);
+  }
+  @Override
+    public final String toString() {
+    return String.format("%20s %20s %20s %20s", customerId, walletId, walletType, walletAmount);
   }
     /**
      * @return this food ID.

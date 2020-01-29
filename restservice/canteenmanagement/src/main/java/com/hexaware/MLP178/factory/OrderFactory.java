@@ -1,19 +1,20 @@
 package com.hexaware.MLP178.factory;
-import java.util.List;
-import java.util.Date;
+
 import com.hexaware.MLP178.persistence.OrderDAO;
 import com.hexaware.MLP178.persistence.DbConnection;
+import java.util.List;
+import java.util.Date;
 import com.hexaware.MLP178.model.Menu;
 import com.hexaware.MLP178.model.Orders;
 import com.hexaware.MLP178.model.Wallet;
 import com.hexaware.MLP178.model.WalletType;
 import com.hexaware.MLP178.model.OrderStatus;
 /**
- * OrderFactory class used to fetch menu data from database.
+ * MenuFactory class used to fetch menu data from database.
  * @author hexware
  */
 public class OrderFactory {
-     /**
+  /**
    *  Protected constructor.
    */
   protected OrderFactory() {
@@ -23,7 +24,7 @@ public class OrderFactory {
    * Call the data base connection.
    * @return the connection object.
    */
-  private static OrderDAO dao() {
+  public static OrderDAO dao() {
     DbConnection db = new DbConnection();
     return db.getConnect().onDemand(OrderDAO.class);
   }
@@ -96,10 +97,10 @@ public class OrderFactory {
           result = "Order Rejected and Amount Refunded...";
         }
       } else {
-        result = "you are unauthorized vendor for this order";
+        result = "You are Unauthorized Vendor for this order...";
       }
     } else {
-      result = "invalid orderid...";
+      result = "Invalid OrderId...";
     }
     return result;
   }
@@ -112,16 +113,26 @@ public class OrderFactory {
    */
   public static String cancelOrder(final int orderId, final int custId, final String status) {
     Orders order = dao().findByOrderId(orderId);
+    int customerId = order.getCustomerId();
+    OrderStatus ostat = order.getOrderStatus();
     String result = "";
     if (order != null) {
-      if (status.equals("YES")) {
-        String st = "REJECTED";
-        dao().acceptOrReject(st, orderId);
-        double billAmount = order.getOrderTotalamount();
-        WalletType type = order.getWalletType();
-        billAmount = billAmount - (billAmount / 10);
-        dao().refundAmount(billAmount, type, custId);
-        result = ("Order Cancelled Successfully and amount refundued to " + type);
+      if (ostat == OrderStatus.PENDING) {
+        if (customerId == custId) {
+          if (status.equals("YES")) {
+            String st = "REJECTED";
+            dao().acceptOrReject(st, orderId);
+            double billAmount = order.getOrderTotalamount();
+            WalletType type = order.getWalletType();
+            billAmount = billAmount - (billAmount / 10);
+            dao().refundAmount(billAmount, type, custId);
+            result = ("Order Cancelled Successfully and Amount refunded to " + type);
+          }
+        } else {
+          result = "you are unauhtorized to cancel...";
+        }
+      } else {
+        result = "you cant cancel the order";
       }
     } else {
       result = "Invalid OrderId...";
@@ -136,25 +147,27 @@ public class OrderFactory {
   public static String placeOrder(final Orders order) {
     Menu menu = dao().findByMenuId(order.getMenuId());
     Wallet wallet = dao().getWalletInfo(order.getWalletType(), order.getCustomerId());
-    //System.out.println(wallet.getWalletAmount());
+    System.out.println("Wallet Balance is :" + wallet.getWalletAmount());
     double walAmount = wallet.getWalletAmount();
     double price = menu.getMenuCost();
     Date today = new Date();
+    System.out.println(order.getOrderDate());
     long diffTime = order.getOrderDate().getTime() - today.getTime();
-    long diffdays = diffTime / (60 * 60 * 1000 * 24);
+    long diffDays = diffTime / (60 * 60 * 1000 * 24);
+    // System.out.println("Diff Time " + diffDays);
     double totalAmount = price * order.getOrderQuantity();
     if (walAmount < totalAmount) {
-      return "Insufficient Funds...";
-    } else if (diffdays < 0) {
-      return "You cannot place order yesterday";
+      return "Insufficient Funds To Place the Order...";
+    } else if (diffDays < 0) {
+      return "Order Cannot be Placed yesterday...";
     } else {
       double diff = walAmount - totalAmount;
-      System.out.println("Price is  " + menu.getMenuCost());
+      System.out.println("Your Order Price is  " + menu.getMenuCost());
       order.setOrderStatus(OrderStatus.PENDING);
       order.setOrderTotalamount(totalAmount);
       dao().placeOrder(order);
       dao().updateBalance(diff, order.getWalletType(), order.getCustomerId());
-      return "Order Placed Successfully...";
+      return "Order Placed Successfully For the Registered Address...\nSoon you will be notified by our Vendor...";
     }
   }
 }

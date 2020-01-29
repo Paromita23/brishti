@@ -22,11 +22,11 @@ public class CustomerTest {
    */
   @Test
   public final void testToString() {
-    Customer customer1 = new Customer(1200, "MOHAN", "MOHANIPS@GMAIL.COM", "9704556474", "30,CHENNAI", "MOHAN12", "MOHAN101");
+    Customer customer1 = new Customer(1200, "MOHAN", "MOHAN101", "MOHANIPS@GMAIL.COM", "9704556474", "30,CHENNAI", "MOHAN12");
     String result = String.format("%10s %10s %10s %10s %10s %10s %10s",
-        customer1.getCustomerId(), customer1.getCustomerName(), customer1.getCustomerEmail(),
+        customer1.getCustomerId(), customer1.getCustomerName(), customer1.getCustomerUsername(), customer1.getCustomerEmail(),
         customer1.getCustomerNumber(), customer1.getCustomerAddress(),
-        customer1.getCustomerPassword(), customer1.getCustomerUsername());
+        customer1.getCustomerPassword());
     assertEquals(result, customer1.toString());
   }
   /**

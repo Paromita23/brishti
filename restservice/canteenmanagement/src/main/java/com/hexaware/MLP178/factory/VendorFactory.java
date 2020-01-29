@@ -20,7 +20,7 @@ public class VendorFactory {
    * Call the data base connection.
    * @return the connection object.
    */
-  private static VendorDAO dao() {
+  public static VendorDAO dao() {
     DbConnection db = new DbConnection();
     return db.getConnect().onDemand(VendorDAO.class);
   }

@@ -25,18 +25,18 @@ class CliMain {
  * mainMenu method  used to display the option we had in the application.
  */
   private void mainMenu() {
-    System.out.println("Canteen Management System");
-    System.out.println("-----------------------");
-    System.out.println("1. Show Menu");
-    System.out.println("2. Show Vendor");
-    System.out.println("3. Show orders");
-    System.out.println("4. Pending Orders");
-    System.out.println("5. Order History");
-    System.out.println("6. Show customers");
-    System.out.println("7. Show wallet");
-    System.out.println("8. Place Order");
-    System.out.println("9. accept reject");
-    System.out.println("10. cancel order");
+    System.out.println("                                 Canteen Management System");
+    System.out.println("---------------------------------------------------------------------------------------------");
+    System.out.println(" 1. Show Menu");
+    System.out.println(" 2. Show Vendor Info");
+    System.out.println(" 3. Show Customer Info");
+    System.out.println(" 4. Show Order Info");
+    System.out.println(" 5. Show Wallet Info");
+    System.out.println(" 6. Pending Orders");
+    System.out.println(" 7. Order History");
+    System.out.println(" 8. Place Order");
+    System.out.println(" 9. Accept/Reject");
+    System.out.println("10. Cancel order");
     System.out.println("11. Exit");
     mainMenuDetails();
   }
@@ -55,19 +55,19 @@ class CliMain {
           showFullVendor();
           break;
         case 3:
-          showFullOrders();
-          break;
-        case 4:
-          pendingOrders();
-          break;
-        case 5:
-          orderHistory();
-          break;
-        case 6:
           showFullCustomer();
           break;
-        case 7:
+        case 4:
+          showFullOrders();
+          break;
+        case 5:
           showFullWallet();
+          break;
+        case 6:
+          pendingOrders();
+          break;
+        case 7:
+          orderHistory();
           break;
         case 8:
           placeOrder();
@@ -81,7 +81,7 @@ class CliMain {
         case 11:
           Runtime.getRuntime().halt(0);
         default:
-          System.out.println("Choose either 1,2,3,4 ,5 or 6");
+          System.out.println("Choose a Number Between 1 to 10");
       }
     } catch (Exception e) {
       e.printStackTrace();
@@ -98,7 +98,7 @@ class CliMain {
     ordId = option.nextInt();
     System.out.println("Enter Customer Id  ");
     custId = option.nextInt();
-    System.out.println("Cancel (Yes/No)  ");
+    System.out.println("Are You Sure To Cancel The Order \n (Yes/No)  ");
     status = option.next();
     if (status.toUpperCase().equals("YES")) {
       System.out.println(OrderFactory.cancelOrder(ordId, custId, status));
@@ -112,7 +112,7 @@ class CliMain {
     ordId = option.nextInt();
     System.out.println("Enter Vendor Id  ");
     vendorId = option.nextInt();
-    System.out.println("ACCEPTED or REJECTED  ");
+    System.out.println("ACCEPTED or REJECTED");
     status = option.next();
     System.out.println(OrderFactory.acceptOrRejectOrder(ordId, vendorId, status));
   }
@@ -121,19 +121,8 @@ class CliMain {
     Orders order = new Orders();
     System.out.println("Enter Customer ID ");
     order.setCustomerId(option.nextInt());
-    Menu[] menu = MenuFactory.showMenu();
-    System.out.println("Menu_Id Category Name Quantity Cost Calories");
-    for (Menu m : menu) {
-      System.out.println(m.getMenuId() + " " + m.getMenuCat() + " " + m.getMenuItem()
-          + " " + m.getMenuQuantity() + " " + m.getMenuCost() + " " + m.getMenuCalories());
-    }
     System.out.println("Enter Menu Id  ");
     order.setMenuId(option.nextInt());
-    Vendor[] vendor = VendorFactory.showVendor();
-    System.out.println("Vendor_Id Vendor_Name");
-    for (Vendor v : vendor) {
-      System.out.println(v.getVendorId() + " " + v.getVendorName());
-    }
     System.out.println("Enter Vendor Id ");
     order.setVendorId(option.nextInt());
     System.out.println("Enter Quantity ");
@@ -151,7 +140,7 @@ class CliMain {
       walSrc = WalletType.DEBIT_CARD;
     }
     order.setWalletType(walSrc);
-    System.out.println("Enter Order Date (yyyy-MM-dd)  ");
+    System.out.println("Enter Order Date (yyyy-mm-dd)  ");
     String ord = option.next();
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     try {
@@ -164,16 +153,15 @@ class CliMain {
     order.setOrderComments(option.next());
     System.out.println(OrderFactory.placeOrder(order));
   }
-
   private void orderHistory() {
-    System.out.println("Orders history:\n1. Customer\n2. Vendor");
+    System.out.println("Orders History:\n1. Customer\n2. Vendor");
     int choice = option.nextInt();
     int count = 0;
     if (choice == 1) {
-      System.out.println("Enter customer Name");
+      System.out.println("Enter Customer Name");
       String username = option.next();
       Console console = System.console();
-      char[] pwd = console.readPassword("Enter Customer password");
+      char[] pwd = console.readPassword("Enter Customer Password\n");
       String password = String.valueOf(pwd);
         //String password = option.next();
       try {
@@ -188,12 +176,12 @@ class CliMain {
         Orders[] cusHistory = OrderFactory.showCustomerHistory(custId);
         System.out.println("-----------------------------------------------------------------"
             + "---------------------------------------------------------------------------------");
-        System.out.printf("%10s %10s %10s %10s %10s %10s %10s %10s", "orderId", "customerId",
-            "vendorid", "menuid", "Order status", "ordercomments", "Bill Amount",
-            "Order quantity");
+        System.out.printf("%15s %15s %15s %15s %15s %15s %15s %15s %15s", "ORD_ID", "CUS_ID",
+            "VEN_ID", "MEN_ID", "ORD_STATUS", "ORD_COMMENTS", "BILL_AMT",
+            "ORD_DATE", "ORD_QTY");
         System.out.println();
         System.out.println("----------------------------------------------------------------------------------"
-            + "-----------------------------------------------------------------------");
+            + "----------------------------------------------------------------");
         for (Orders order : cusHistory) {
           System.out.println(order);
           System.out.println();
@@ -206,7 +194,7 @@ class CliMain {
       System.out.println("Enter Vendor Name");
       String username = option.next();
       Console console = System.console();
-      char[] pwd = console.readPassword("Enter Vendor password");
+      char[] pwd = console.readPassword("Enter Vendor Password\n");
       String password = String.valueOf(pwd);
         //String password = option.next();
       try {
@@ -219,14 +207,14 @@ class CliMain {
         Vendor vendor = VendorFactory.findByVendorName(username);
         int vendId = vendor.getVendorId();
         Orders[] venHistory = OrderFactory.showVendorHistory(vendId);
-        System.out.println("----------------------------------------------------"
-            + "----------------------------------------------");
-        System.out.printf("%20s %20s %20s %20s %20s %20s %20s %20s", "Item Id", "Menu Id",
-            "Order Status", "Order quantity", "Order id", "Customer ID", "Bill Amount",
-            "Order Date");
+        System.out.println("-----------------------------------------------------------------"
+            + "---------------------------------------------------------------------------------");
+        System.out.printf("%15s %15s %15s %15s %15s %15s %15s %15s %15s", "ORD_ID", "CUS_ID",
+            "VEN_ID", "MEN_ID", "ORD_STATUS", "ORD_COMMENTS", "BILL_AMT",
+            "ORD_DATE", "ORD_QTY");
         System.out.println();
-        System.out.println("----------------------------------------------------"
-            + "----------------------------------------------");
+        System.out.println("-----------------------------------------------------------------"
+            + "---------------------------------------------------------------------------------");
         for (Orders order : venHistory) {
           System.out.println(order);
           System.out.println();
@@ -244,7 +232,7 @@ class CliMain {
       System.out.println("Enter UserName");
       String username = option.next();
       Console console = System.console();
-      char[] pwd = console.readPassword("Enter password");
+      char[] pwd = console.readPassword("Enter Password\n");
       String password = String.valueOf(pwd);
         //String password = option.next();
       try {
@@ -259,9 +247,9 @@ class CliMain {
         Orders[] cusHistory = OrderFactory.showpendingCustomerOrders(custId);
         System.out.println("------------------------------------------------------------------------"
             + "------------------------------------------------------------------------");
-        System.out.printf("%15s %15s %15s %15s %15s %15s %15s %15s %15s", "Order Id", "Cus Id",
-            "Vendor Id", "Menu ID", "Order Status", "Order Comments", "Bill Amount",
-            "Order Date", "Order Qty");
+        System.out.printf("%15s %15s %15s %15s %15s %15s %15s %15s %15s", "ORD_ID", "CUS_ID",
+            "VEN_ID", "MEN_ID", "ORD_STATUS", "ORD_COMMENTS", "BILL_AMT",
+            "ORD_DATE", "ORD_QTY");
         System.out.println();
         System.out.println("------------------------------------------------------------------------"
             + "------------------------------------------------------------------------");
@@ -277,7 +265,7 @@ class CliMain {
       System.out.println("Enter UserName");
       String username = option.next();
       Console console = System.console();
-      char[] pwd = console.readPassword("Enter password");
+      char[] pwd = console.readPassword("Enter password\n");
       String password = String.valueOf(pwd);
         //String password = option.next();
       try {
@@ -307,8 +295,7 @@ class CliMain {
       }
     }
   }
-
- /**
+   /**
  * showFullMenu method  display the menu item stored in database.
  */
   private void showFullWallet() {
@@ -318,7 +305,7 @@ class CliMain {
     Console console = System.console();
     char[] pwd = console.readPassword("Enter Customer password");
     String password = String.valueOf(pwd);
-  //String password = option.next();
+    //String password = option.next();
     try {
       count = CustomerFactory.validateCustomer(username, password);
     } catch (IllegalArgumentException e) {
@@ -331,14 +318,13 @@ class CliMain {
       Wallet[] wallet = WalletFactory.showWallet(custId);
       System.out.println("-------------------------------------------------------------------"
           + "---------------------------------------------------------------------------------");
-      System.out.printf("%20s %20s %20s %20s", "WalletId", "WalletType",
+      System.out.printf("%-15s %-15s %-15s %-15s", "WalletId", "WalletType",
           "WalletAmount", "CustomerId");
-      System.out.println("");
+      System.out.println();
       System.out.println("--------------------------------------------------------------------"
           + "-----------------------------------------------------------------------");
       for (Wallet m : wallet) {
-        System.out.println(m.getWalletId() + "          " + m.getWalletType() + "         " + m.getWalletAmount()
-            + "         " + m.getCustomerId());
+        System.out.println(m);
         System.out.println();
       }
     } else {
@@ -350,30 +336,45 @@ class CliMain {
  */
   private void showFullMenu() {
     Menu[] menu = MenuFactory.showMenu();
-    System.out.println("Menu_Id Category name Quantity Cost Calories reviews");
+    //System.out.println("Menu_Id Category Name Quantity Cost Calories Reviews");
+    System.out.println("-----------------------------------------------------------------"
+            + "---------------------------------------------------------------------------------");
+    System.out.printf("%-15s %-15s %-15s %-15s %-15s %-15s %-15s", "Menu Id", "Menu Cat", "Menu Item",
+        "Menu Quantity", "Menu Cost", "Menu Calories", "Menu Reviews");
+    //System.out.println("-------------------------------------------");
+    System.out.println();
+    System.out.println("------------------------------------------------------------------------"
+        + "------------------------------------------------------------------------");
     for (Menu m : menu) {
-      System.out.println(m.getMenuId() + " " + m.getMenuCat() + " " + m.getMenuItem()
-          + " " + m.getMenuQuantity() + " " + m.getMenuCost() + " " + m.getMenuCalories() + " " + m.getMenuReviews());
+     /* System.out.println(m.getMenuId() + "      " + m.getMenuCat() + "      " + m.getMenuItem()
+          + "    " + m.getMenuQuantity() + "     " + m.getMenuCost() + "     " + m.getMenuCalories() + "   " + m.getMenuReviews());*/
+      System.out.println(m);
+      System.out.println();
     }
   }
   /**
- * showFullVendor method  display the menu item stored in database.
+ * showFullMenu method  display the menu item stored in database.
  */
   private void showFullVendor() {
     String user;
     String password;
-    System.out.println("enter the username");
+    System.out.println("Enter Vendor Name");
     user = option.next();
     Console console = System.console();
-    char[] pwd = console.readPassword("enter password");
+    char[] pwd = console.readPassword("Enter Password\n");
     password = String.valueOf(pwd);
     int count = VendorFactory.validateVendor(user, password);
     System.out.println(count);
     if (count == 1) {
       Vendor vendorFound = VendorFactory.findByVendorName(user);
+      System.out.println("-----------------------------------------------------------------"
+            + "---------------------------------------------------------------------------------");
+      System.out.printf("%10s %15s %15s %15s %20s", "VEN_ID", "VEN_NAME", "VEN_USR", "VEN_PH.NO", "VEN_MAIL\n");
+      System.out.println("-----------------------------------------------------------------"
+            + "---------------------------------------------------------------------------------");
       System.out.println(vendorFound);
     } else {
-      System.out.println("invalid credentials..");
+      System.out.println("Invalid Credentials..");
     }
     //Vendor[] vendor = VendorFactory.showVendor();
     //System.out.println("vendorid name username number email password");
@@ -387,11 +388,15 @@ class CliMain {
  */
   private void showFullOrders() {
     Orders[] order = OrderFactory.showOrder();
-    System.out.println("vendorid name username number email password");
+    System.out.println("-----------------------------------------------------------------"
+            + "---------------------------------------------------------------------------------");
+    System.out.printf("%15s %15s %15s %15s %15s %15s %15s %15s %15s",
+        "ORD_ID", "CUS_ID", "VEN_ID", "MEN_ID", "ORD_STATUS", "ORD_CMTS", "TOT_AMT", "ORD_DATE", "QTY\n");
+    System.out.println("-----------------------------------------------------------------"
+            + "---------------------------------------------------------------------------------");
     for (Orders m : order) {
-      System.out.println(m.getOrderId() + " " + m.getCustomerId() + " " + m.getVendorId()
-          + " " + m.getMenuId() + " " + m.getOrderStatus() + " " + m.getOrderComments() + " " + m.getOrderTotalamount()
-          + " " + m.getOrderDate() + " " + m.getOrderQuantity());
+      System.out.println(m);
+      System.out.println();
     }
   }
    /**
@@ -400,15 +405,20 @@ class CliMain {
   private void showFullCustomer() {
     String user;
     String password;
-    System.out.println("enter the username");
+    System.out.println("Enter Customer Name");
     user = option.next();
     Console console = System.console();
-    char[] pwd = console.readPassword("enter password");
+    char[] pwd = console.readPassword("Enter Password\n");
     password = String.valueOf(pwd);
     int count = CustomerFactory.validateCustomer(user, password);
     System.out.println(count);
     if (count == 1) {
       Customer customerFound = CustomerFactory.findByCustomerName(user);
+      System.out.println("-----------------------------------------------------------------"
+            + "---------------------------------------------------------------------------------");
+      System.out.printf("%15s %15s %15s %15s %15s %15s\n", "CUS_ID", "CUS_NAME", "CUS_USR", "CUS_MAIL", "CUS_PH.NO", "CUS_ADDRESS");
+      System.out.println("-----------------------------------------------------------------"
+            + "---------------------------------------------------------------------------------");
       System.out.println(customerFound);
     } else {
       System.out.println("invalid credentials..");

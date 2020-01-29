@@ -9,17 +9,17 @@ import org.skife.jdbi.v2.sqlobject.Bind;
  * @author hexware
  */
 public interface WalletDAO {
-    /**
-     * @return the all the Menu record.
-     */
+   /**
+    * @return the all the Menu record.
+    */
   @SqlQuery("Select * from Wallet")
     @Mapper(WalletMapper.class)
     List<Wallet> show();
-     /**
+        /**
      * @param cusId for input customer id.
      * @return the all the wallet records of customer.
      */
   @SqlQuery("SELECT * FROM WALLET WHERE CUS_ID=:cusId")
-  @Mapper(WalletMapper.class)
-  List<Wallet> showByWalletId(@Bind("cusId") int cusId);
+    @Mapper(WalletMapper.class)
+    List<Wallet> showByWalletId(@Bind("cusId") int cusId);
 }

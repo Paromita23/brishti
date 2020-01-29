@@ -20,7 +20,7 @@ public class CustomerFactory {
    * Call the data base connection.
    * @return the connection object.
    */
-  private static CustomerDAO dao() {
+  public static CustomerDAO dao() {
     DbConnection db = new DbConnection();
     return db.getConnect().onDemand(CustomerDAO.class);
   }

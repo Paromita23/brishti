@@ -79,12 +79,13 @@ public class Customer {
   }
   @Override
     public final int hashCode() {
-    return Objects.hash(customerId);
+    return Objects.hash(customerId, customerName, customerEmail,
+     customerNumber,  customerAddress, customerPassword, customerUsername);
   }
   @Override
   public final String toString() {
-    return String.format("%10s %10s %10s %10s %10s %10s %10s", customerId, customerName, customerEmail,
-     customerNumber,  customerAddress, customerPassword, customerUsername);
+    return String.format("%10s %10s %10s %10s %10s %10s %10s", customerId, customerName,  customerUsername,
+     customerEmail, customerNumber,  customerAddress, customerPassword);
   }
     /**
      * @return this food ID.
