@@ -161,8 +161,9 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.16.12</version>
-    </dependency>
+      <version>1.16.22</version>
+      <scope>provided</scope>
+  </dependency>
   </dependencies>
   <reporting>
     <plugins>
