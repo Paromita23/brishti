@@ -1,0 +1,21 @@
+<table border ="3">
+  <tr>
+    <th>Empno</th>
+    <th>Name</th>
+    <th>Department</th>
+    <th>design</th>
+    <th>basics</th>
+    <th>show</th>
+  </tr>
+  <tr *ngFor="let e of employs">
+    <td>{{e.empno}}</td>
+    <td>{{e.name}}</td>
+    <td>{{e.dept}}</td>
+    <td>{{e.design}}</td>
+      <td>{{e.basic}}</td>
+      <input type ="button" value="show" (click)="show(e.name)"/>
+  </tr>
+</table>
+<p>
+  Name is : {{name}}
+</p>

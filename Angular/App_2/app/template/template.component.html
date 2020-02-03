@@ -1,0 +1,52 @@
+<h3>Template Diven Form</h3>
+<P *ngIf="isValidFormSubmitted"
+[ngClass]="success">
+FORM SUBMITTED SUCCESS</P>
+<form #userForm = "ngForm"
+(ngSubmit)="onFormSubmit(userForm)" ngNativeValidate>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>
+      <input name="uname"
+      [ngModel]="user.userName"
+      required #uname="ngModel">
+    </td>
+  </tr>
+<tr>
+  <td>Gender:</td>
+  <td>
+    <input type ="radio" value ="male" name="gender"
+    [ngModel]="user.gender"
+    required
+    #gender="ngModel">
+    Male
+    <input type ="radio" value ="female" name="gender"
+    [ngModel]="user.gender"
+    required
+    #gender="ngModel">
+    Female
+  </td>
+</tr>
+<tr>
+  <td>Are you married ?</td>
+  <td>
+    <input type ="checkbox" name="married"
+    [ngModel]="user.isMarried">
+  </td>
+</tr>
+<tr>
+  <td>Accept T & C</td>
+  <td>
+    <input type ="checkbox" name="tc"
+    [ngModel]="user.isTCAccepted"
+    required #tc="ngModel">
+  </td>
+</tr>
+<tr>
+  <td colspan ="2">
+    <button>Submit</button>
+  </td>
+</tr>
+</table>
+</form>

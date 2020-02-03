@@ -1,0 +1,40 @@
+<table border ="3">
+    <tr>
+      <th>empId</th>
+      <th>ename</th>
+      <th>empPhone</th>
+      <th>empEmail</th>
+      <th>empDept</th>
+      <th>empJoinDate</th>
+      <th>empMgrId</th>
+      <th>empLeaveBal</th>
+      <th>show</th>
+    </tr>
+    <tr *ngFor ="let employee2 of employee1 | async">
+      <td>
+        {{employee2.empId}}
+      </td>
+      <td>
+        {{employee2.ename}}
+      </td>
+      <td>
+        {{employee2.empPhone}}
+      </td>
+      <td>
+        {{employee2.empEmail}}
+      </td>
+      <td>
+          {{employee2.empDept}}
+        </td>
+        <td>
+          {{employee2.empJoinDate}}
+        </td>
+        <td>
+          {{employee2.empMgrId}}
+        </td>
+        <td>
+          {{employee2.empLeaveBal}}
+        </td>
+        <input type ="button" value="show" (click)="dashboard(employee2.empId)"/>
+    </tr>
+  </table>

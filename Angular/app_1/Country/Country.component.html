@@ -1,0 +1,10 @@
+
+
+<select [(ngModel)]="cname">
+  <option *ngFor="let c of countries"
+  value= {{c.name}}> {{c.name}}</option>
+</select>
+selectd countriesis:
+<b>
+  {{cname}}
+</b>

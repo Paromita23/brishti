@@ -1,0 +1,56 @@
+<h3>Reactive Forms
+</h3>
+<p *ngIf="isValidFormSubmitted"
+[ngClass] = "'success'">
+Form Submitted Successfully
+</p>
+<form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+  <table>
+    <tr>
+      <td>name:</td>
+      <td>
+        <input formControlName="uname">
+        <div *ngIf="userForm.get('uname').invalid && isValidFormSubmitted !=null && 
+        !isValidFormSubmitted" [ngClass]="'error'">
+          name required
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        gender:
+      </td>
+      <td>
+        <input type = "radio" value ="male"
+        formControlName="gender">male
+        <input type = "radio" value ="female"
+        formControlName="gender">female
+        <div *ngIf="userForm.get('gender').invalid && isValidFormSubmitted !=null && !isValidFormSubmitted" [ngClass]="'error'">
+          Gender Required
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Are you Married?</td>
+      <td>
+        <input type = "checkbox" formControlName="married">
+      </td>
+    </tr>
+    <tr>
+      <td>Accept T & C</td>
+      <td>
+        <input type="checkbox" formControlName="tc">
+        <div *ngIf="userForm.get('tc').invalid && isValidFormSubmitted !=null && !isValidFormSubmitted" [ngClass]="'error'">
+          Accept T & C
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <button>Submit</button>
+        <button type = "button" (click)="setDefaultValues()">Set Default</button>
+        <button type = "button" (click)="reset()">Reset</button>
+      </td>
+    </tr>
+  </table>
+</form>

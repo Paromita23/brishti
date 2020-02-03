@@ -1,0 +1,33 @@
+<h1>{{title}}</h1>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Manager ID</th>
+        </tr>
+    </thead>
+    <tbody class="employees">
+        <tr *ngFor="let user of users">
+            <td>
+                <h5>{{user.id}}</h5>
+            </td>
+            <td>
+                <h5> {{user.name}}</h5>
+            </td>
+            <td>
+                <h5>  {{user.email}}</h5>
+            </td>
+            <td>
+                <h5>    {{user.username}}</h5>
+            </td>
+           
+            <td>
+                <button>Login</button>
+            </td>                
+        </tr>
+    </tbody>
+</table>
+
