@@ -72,14 +72,20 @@ public class Menu {
       return false;
     }
     Menu menu = (Menu) obj;
-    if (Objects.equals(menuId, menu.menuId)) {
+    if (Objects.equals(menuId, menu.menuId)
+        && Objects.equals(menuCat, menu.menuCat)
+        && Objects.equals(menuItem, menu.menuItem)
+        && Objects.equals(menuQuantity, menu.menuQuantity)
+        && Objects.equals(menuCost, menu.menuCost)
+        && Objects.equals(menuCalories, menu.menuCalories)
+        && Objects.equals(menuReviews, menu.menuReviews)) {
       return true;
     }
     return false;
   }
   @Override
     public final int hashCode() {
-    return Objects.hash(menuId);
+    return Objects.hash(menuId, menuItem, menuQuantity, menuCost, menuCalories, menuReviews);
   }
   @Override
     public final String toString() {

@@ -72,7 +72,13 @@ public class Customer {
       return false;
     }
     Customer customer = (Customer) obj;
-    if (Objects.equals(customerId, customer.customerId)) {
+    if (Objects.equals(customerId, customer.customerId)
+        && Objects.equals(customerName, customer.customerName)
+        && Objects.equals(customerEmail, customer.customerEmail)
+        && Objects.equals(customerNumber, customer.customerNumber)
+        && Objects.equals(customerAddress, customer.customerAddress)
+        && Objects.equals(customerPassword, customer.customerPassword)
+        && Objects.equals(customerUsername, customer.customerUsername)) {
       return true;
     }
     return false;

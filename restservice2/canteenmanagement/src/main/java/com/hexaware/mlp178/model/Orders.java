@@ -91,14 +91,24 @@ public class Orders {
       return false;
     }
     Orders order = (Orders) obj;
-    if (Objects.equals(orderId, order.orderId)) {
-      return true;
+    if (Objects.equals(orderId, order.orderId)
+        && Objects.equals(customerId, order.customerId)
+        && Objects.equals(vendorId, order.vendorId)) { return true;
+ 
+        // && Objects.equals(menuId, order.menuId)
+        // && Objects.equals(orderStatus, order.orderStatus)
+        // && Objects.equals(orderComments, order.orderComments)
+        // && Objects.equals(orderTotalamount, order.orderTotalamount)
+        // && Objects.equals(orderDate, order.orderDate)
+        // && Objects.equals(orderQuantity, order.orderQuantity)
+        // && Objects.equals(walletType, order.walletType)     
     }
     return false;
   }
   @Override
     public final int hashCode() {
-    return Objects.hash(orderId);
+    return Objects.hash(orderId, customerId, vendorId, menuId, orderStatus, orderComments,
+    orderTotalamount, orderDate, orderQuantity, walletType);
   }
   @Override
     public final String toString() {

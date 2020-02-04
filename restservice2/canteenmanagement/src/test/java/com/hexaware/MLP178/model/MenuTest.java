@@ -46,7 +46,6 @@ public class MenuTest {
     assertTrue(m2.equals(m3));
 
     assertEquals(m2.hashCode(), m3.hashCode());
-    
     Vendor vendor = new Vendor();
     assertFalse(m2.equals(vendor));
     assertFalse(m2.equals(r));

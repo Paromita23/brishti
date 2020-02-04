@@ -64,14 +64,19 @@ public class Vendor {
       return false;
     }
     Vendor vendor = (Vendor) obj;
-    if (Objects.equals(vendorId, vendor.vendorId)) {
+    if (Objects.equals(vendorId, vendor.vendorId)
+        && Objects.equals(vendorName, vendor.vendorName)
+        && Objects.equals(vendorUsername, vendor.vendorUsername)
+        && Objects.equals(vendorNumber, vendor.vendorNumber)
+        && Objects.equals(vendorEmail, vendor.vendorEmail)
+        && Objects.equals(vendorPassword, vendor.vendorPassword)) {
       return true;
     }
     return false;
   }
   @Override
     public final int hashCode() {
-    return Objects.hash(vendorId);
+    return Objects.hash(vendorId, vendorName, vendorUsername, vendorNumber, vendorEmail, vendorPassword);
   }
   @Override
     public final String toString() {
