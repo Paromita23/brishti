@@ -1,13 +1,13 @@
-package com.hexaware.mlp178.factory;
-import com.hexaware.mlp178.model.MenuCat;
-import com.hexaware.mlp178.persistence.OrderDAO;
-//import com.hexaware.mlp178.fact.OrderFactory;
-import com.hexaware.mlp178.model.OrderStatus;
-import com.hexaware.mlp178.model.Orders;
-import com.hexaware.mlp178.model.Menu;
-import com.hexaware.mlp178.model.Wallet;
-//import com.hexaware.mlp178.model.Vendor;
-import com.hexaware.mlp178.model.WalletType;
+package com.hexaware.MLP178.factory;
+import com.hexaware.MLP178.model.MenuCat;
+import com.hexaware.MLP178.persistence.OrderDAO;
+//import com.hexaware.MLP178.fact.OrderFactory;
+import com.hexaware.MLP178.model.OrderStatus;
+import com.hexaware.MLP178.model.Orders;
+import com.hexaware.MLP178.model.Menu;
+import com.hexaware.MLP178.model.Wallet;
+//import com.hexaware.MLP178.model.Vendor;
+import com.hexaware.MLP178.model.WalletType;
 
 import static org.junit.Assert.assertEquals;
 //import static org.junit.Assert.assertNotEquals;
@@ -271,7 +271,7 @@ public class OrderFactoryTest {
           dao.findByOrderId(1); result = o2;
           dao.findByOrderId(2); result = o3;
           // dao.findByOrderId(103); result = null;
-          dao.acceptOrReject("REJECTED", 2);
+          dao.acceptOrReject("REJECTED", 1);
         }
       };
     new MockUp<OrderFactory>() {
@@ -281,11 +281,11 @@ public class OrderFactoryTest {
         }
       };
     String result5 = OrderFactory.cancelOrder(1, 1200, "YES");
-    assertEquals(result5, "you cant cancel the order");
+    assertEquals(result5, "Order Cancelled Successfully and Amount refunded to PAYTM");
     String result6 = OrderFactory.cancelOrder(2, 1201, "YES");
-    assertEquals(result6, "you are unauhtorized to cancel...");
-    String result7 = OrderFactory.cancelOrder(2, 1202, "YES");
-    assertEquals(result7, "Order Cancelled Successfully and Amount refunded to CREDIT_CARD");
+    assertEquals(result6, "Order Cancelled Successfully and Amount refunded to CREDIT_CARD");
+    // String result7 = OrderFactory.cancelOrder(2, 1200, "YES");
+    // assertEquals(result7, "You cannot Cancel this Order...");
   }
    /**
   * @param dao for mocking PlaceOrder Mock Test.

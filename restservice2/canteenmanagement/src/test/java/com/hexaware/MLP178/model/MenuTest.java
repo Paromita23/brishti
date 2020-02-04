@@ -1,7 +1,7 @@
-package com.hexaware.mlp178.model;
+package com.hexaware.MLP178.model;
 
-//import com.hexaware.mlp178.persistence.MenuDAO;
-//import com.hexaware.mlp178.factory.MenuFactory;
+//import com.hexaware.MLP178.persistence.MenuDAO;
+//import com.hexaware.MLP178.factory.MenuFactory;
 import static org.junit.Assert.assertEquals;
 //import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertFalse;
@@ -44,7 +44,9 @@ public class MenuTest {
     Menu m3 = new Menu(1, MenuCat.VEG, "MASAL DOSA", 1, 60, 101, "***");
     assertFalse(m2.equals(m1));
     assertTrue(m2.equals(m3));
+
     assertEquals(m2.hashCode(), m3.hashCode());
+    
     Vendor vendor = new Vendor();
     assertFalse(m2.equals(vendor));
     assertFalse(m2.equals(r));

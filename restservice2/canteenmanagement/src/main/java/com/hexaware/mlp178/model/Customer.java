@@ -1,6 +1,5 @@
-package com.hexaware.mlp178.model;
+package com.hexaware.MLP178.model;
 import java.util.Objects;
-import java.util.Date;
 
 /**
  * Menu class used to display menu information.
@@ -25,10 +24,6 @@ public class Customer {
  */
   private String customerNumber;
   /**
- * customerDOB to store customer date of birth.
- */
-  private Date customerDOB;
-  /**
  * customerAddress to store address.
  */
   private String customerAddress;
@@ -49,23 +44,21 @@ public class Customer {
 /**
  * @param argCustomerId to initialize customer id.
  * used to get details through constructor.
- * @param argCustomerName to initialize customer name.
- * @param argCustomerEmail to initialize customer email.
- * @param argCustomerNumber to initialize customer phn no.
- * @param argCustomerDOB to initialize customer date of birth
- * @param argCustomerAddress to initialize customer address.
- * @param argCustomerPassword to initialize customer password.
- * @param argCustomerUsername to initialize customer username.
+ * @param argCustomerName to initialize food price.
+ * @param argCustomerEmail to initialize food Detail.
+ * @param argCustomerNumber to initialize food Status.
+ * @param argCustomerAddress to initialize food Rating.
+ * @param argCustomerPassword to initialize food Rating.
+ * @param argCustomerUsername to initialize food Rating.
  * used to get details through constructor.
  */
   public Customer(final int argCustomerId, final String argCustomerName, final String argCustomerEmail,
-        final String argCustomerNumber, final Date argCustomerDOB, final String argCustomerAddress, final String argCustomerPassword,
+        final String argCustomerNumber, final String argCustomerAddress, final String argCustomerPassword,
       final String argCustomerUsername) {
     this.customerId = argCustomerId;
     this.customerName = argCustomerName;
     this.customerEmail = argCustomerEmail;
     this.customerNumber = argCustomerNumber;
-    this.customerDOB = argCustomerDOB;
     this.customerAddress = argCustomerAddress;
     this.customerPassword = argCustomerPassword;
     this.customerUsername = argCustomerUsername;
@@ -87,21 +80,21 @@ public class Customer {
   @Override
     public final int hashCode() {
     return Objects.hash(customerId, customerName, customerEmail,
-     customerNumber, customerDOB, customerAddress, customerPassword, customerUsername);
+     customerNumber,  customerAddress, customerPassword, customerUsername);
   }
   @Override
   public final String toString() {
-    return String.format("%10s %10s %10s %10s %10s %10s %10s %10s", customerId, customerName,  customerUsername,
-     customerEmail, customerNumber, customerDOB, customerAddress, customerPassword);
+    return String.format("%10s %10s %10s %10s %10s %10s %10s", customerId, customerName,  customerUsername,
+     customerEmail, customerNumber,  customerAddress, customerPassword);
   }
     /**
-     * @return this customer ID.
+     * @return this food ID.
      */
   public final int getCustomerId() {
     return customerId;
   }
     /**
-     * @param argCustomerId gets the customer id.
+     * @param argCustomerId gets the food id.
      */
   public final void setCustomerId(final int argCustomerId) {
     this.customerId = argCustomerId;
@@ -142,18 +135,6 @@ public class Customer {
   public final void setCustomerNumber(final String argCustomerNumber) {
     this.customerNumber = argCustomerNumber;
   }
-  /**
-     * @return this customer date of birth.
-     */
-    public final Date getCustomerDOB() {
-      return customerDOB;
-    }
-      /**
-       * @param argCustomerDOB gets the customer date of birth.
-       */
-    public final void setCustomerDOB(final Date argCustomerDOB) {
-      this.customerDOB = argCustomerDOB;
-    }
   /**
      * @return this adderss.
      */

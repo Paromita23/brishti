@@ -1,13 +1,13 @@
-package com.hexaware.mlp178.factory;
-import com.hexaware.mlp178.persistence.MenuDAO;
-import com.hexaware.mlp178.model.Menu;
+package com.hexaware.MLP178.factory;
+import com.hexaware.MLP178.persistence.MenuDAO;
+import com.hexaware.MLP178.model.Menu;
 import static org.junit.Assert.assertEquals;
 //import static org.junit.Assert.assertNotEquals;
 //import static org.junit.Assert.assertFalse;
 //import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertNotNull;
 //import static org.junit.Assert.assertNull;
-import com.hexaware.mlp178.model.MenuCat;
+import com.hexaware.MLP178.model.MenuCat;
 
 //import java.text.ParseException;
 import org.junit.Test;

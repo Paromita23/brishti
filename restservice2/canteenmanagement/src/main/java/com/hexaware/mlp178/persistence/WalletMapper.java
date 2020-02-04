@@ -1,10 +1,10 @@
-package com.hexaware.mlp178.persistence;
+package com.hexaware.MLP178.persistence;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.hexaware.mlp178.model.Wallet;
-import com.hexaware.mlp178.model.WalletType;
+import com.hexaware.MLP178.model.Wallet;
+import com.hexaware.MLP178.model.WalletType;
 
 import org.skife.jdbi.v2.tweak.ResultSetMapper;
 import org.skife.jdbi.v2.StatementContext;

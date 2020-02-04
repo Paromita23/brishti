@@ -1,7 +1,7 @@
-package com.hexaware.mlp178.factory;
+package com.hexaware.MLP178.factory;
 
-import com.hexaware.mlp178.persistence.VendorDAO;
-import com.hexaware.mlp178.model.Vendor;
+import com.hexaware.MLP178.persistence.VendorDAO;
+import com.hexaware.MLP178.model.Vendor;
 import static org.junit.Assert.assertEquals;
 //import static org.junit.Assert.assertFalse;
 //import static org.junit.Assert.assertTrue;

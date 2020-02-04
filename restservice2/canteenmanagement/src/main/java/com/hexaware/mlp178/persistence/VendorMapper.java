@@ -1,9 +1,9 @@
-package com.hexaware.mlp178.persistence;
+package com.hexaware.MLP178.persistence;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.hexaware.mlp178.model.Vendor;
+import com.hexaware.MLP178.model.Vendor;
 
 import org.skife.jdbi.v2.tweak.ResultSetMapper;
 import org.skife.jdbi.v2.StatementContext;

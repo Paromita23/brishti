@@ -1,9 +1,9 @@
-package com.hexaware.mlp178.persistence;
+package com.hexaware.MLP178.persistence;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.hexaware.mlp178.model.Customer;
+import com.hexaware.MLP178.model.Customer;
 
 import org.skife.jdbi.v2.tweak.ResultSetMapper;
 import org.skife.jdbi.v2.StatementContext;
@@ -26,7 +26,7 @@ public class CustomerMapper implements ResultSetMapper<Customer> {
     //String category = rs.getString("MEN_CAT");
     //MenuCat mcat = MenuCat.valueOf(category);
     return new Customer(rs.getInt("CUS_ID"), rs.getString("CUS_NAME"),
-    rs.getString("CUS_EMAIL"), rs.getString("CUS_PHNO"), rs.getDate("CUS_DOB"), rs.getString("CUS_ADDRESS"),
+    rs.getString("CUS_EMAIL"), rs.getString("CUS_PHNO"), rs.getString("CUS_ADDRESS"),
     rs.getString("CUS_PASSWORD"), rs.getString("CUS_USERNAME"));
   }
 }

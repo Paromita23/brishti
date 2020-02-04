@@ -1,20 +1,20 @@
-package com.hexaware.mlp178.util;
+package com.hexaware.MLP178.util;
 import java.util.Scanner;
 import java.io.Console;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import com.hexaware.mlp178.factory.MenuFactory;
-import com.hexaware.mlp178.model.Menu;
-import com.hexaware.mlp178.factory.VendorFactory;
-import com.hexaware.mlp178.model.Vendor;
-import com.hexaware.mlp178.factory.OrderFactory;
-import com.hexaware.mlp178.model.Orders;
-import com.hexaware.mlp178.factory.CustomerFactory;
-import com.hexaware.mlp178.model.Customer;
+import com.hexaware.MLP178.factory.MenuFactory;
+import com.hexaware.MLP178.model.Menu;
+import com.hexaware.MLP178.factory.VendorFactory;
+import com.hexaware.MLP178.model.Vendor;
+import com.hexaware.MLP178.factory.OrderFactory;
+import com.hexaware.MLP178.model.Orders;
+import com.hexaware.MLP178.factory.CustomerFactory;
+import com.hexaware.MLP178.model.Customer;
 import java.text.ParseException;
-import com.hexaware.mlp178.factory.WalletFactory;
-import com.hexaware.mlp178.model.Wallet;
-import com.hexaware.mlp178.model.WalletType;
+import com.hexaware.MLP178.factory.WalletFactory;
+import com.hexaware.MLP178.model.Wallet;
+import com.hexaware.MLP178.model.WalletType;
 /**
  * CliMain used as Client interface for java coading.
  * @author hexware
@@ -121,12 +121,6 @@ class CliMain {
     Orders order = new Orders();
     System.out.println("Enter Customer ID ");
     order.setCustomerId(option.nextInt());
-    Date today = new Date();
-    Customer customer = OrderFactory.dao().findByCustomerId(order.getCustomerId());
-    if(today.getMonth() == customer.getCustomerDOB().getMonth())
-    {
-      System.out.println("Its your birthday month...\n");
-    }
     System.out.println("Enter Menu Id  ");
     order.setMenuId(option.nextInt());
     System.out.println("Enter Vendor Id ");
@@ -422,7 +416,7 @@ class CliMain {
       Customer customerFound = CustomerFactory.findByCustomerName(user);
       System.out.println("-----------------------------------------------------------------"
             + "---------------------------------------------------------------------------------");
-      System.out.printf("%15s %15s %15s %15s %15s %15s %15s\n", "CUS_ID", "CUS_NAME", "CUS_USR", "CUS_MAIL", "CUS_PH.NO", "CUS_DOB", "CUS_ADDRESS");
+      System.out.printf("%15s %15s %15s %15s %15s %15s\n", "CUS_ID", "CUS_NAME", "CUS_USR", "CUS_MAIL", "CUS_PH.NO", "CUS_ADDRESS");
       System.out.println("-----------------------------------------------------------------"
             + "---------------------------------------------------------------------------------");
       System.out.println(customerFound);

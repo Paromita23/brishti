@@ -1,4 +1,4 @@
-package com.hexaware.mlp178.model;
+package com.hexaware.MLP178.model;
 
 /**
  * OrderStatus class to store Order Status Information.

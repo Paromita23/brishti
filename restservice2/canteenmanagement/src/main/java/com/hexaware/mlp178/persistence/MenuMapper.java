@@ -1,10 +1,10 @@
-package com.hexaware.mlp178.persistence;
+package com.hexaware.MLP178.persistence;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.hexaware.mlp178.model.MenuCat;
-import com.hexaware.mlp178.model.Menu;
+import com.hexaware.MLP178.model.MenuCat;
+import com.hexaware.MLP178.model.Menu;
 
 import org.skife.jdbi.v2.tweak.ResultSetMapper;
 import org.skife.jdbi.v2.StatementContext;
