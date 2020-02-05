@@ -145,15 +145,15 @@ public class Customer {
   /**
      * @return this customer date of birth.
      */
-    public final Date getCustomerDOB() {
-      return customerDOB;
-    }
+  public final Date getCustomerDOB() {
+    return customerDOB;
+  }
       /**
        * @param argCustomerDOB gets the customer date of birth.
        */
-    public final void setCustomerDOB(final Date argCustomerDOB) {
-      this.customerDOB = argCustomerDOB;
-    }
+  public final void setCustomerDOB(final Date argCustomerDOB) {
+    this.customerDOB = argCustomerDOB;
+  }
   /**
      * @return this adderss.
      */

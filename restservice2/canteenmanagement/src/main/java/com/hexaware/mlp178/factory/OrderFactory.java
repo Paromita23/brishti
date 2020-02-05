@@ -29,7 +29,7 @@ public class OrderFactory {
   public static OrderDAO dao() {
     DbConnection db = new DbConnection();
     return db.getConnect().onDemand(OrderDAO.class);
-  } 
+  }
   /**
    * Call the data base connection.
    * @return the array of menu object.
@@ -169,14 +169,13 @@ public class OrderFactory {
       order.setOrderStatus(OrderStatus.PENDING);
       order.setOrderTotalamount(totalAmount);
       dao().placeOrder(order);
-      // if(totalAmount > 500) 
+      // if(totalAmount > 500)
       //{
       //   totalAmount = totalAmount - 0.05*(totalAmount);
       //   System.out.println("You got 5% discount on your order...\n");
-      // } 
-      if(today.getMonth() == customer.getCustomerDOB().getMonth()) 
-      {
-        totalAmount = totalAmount - 0.1*(totalAmount);
+      // }
+      if (today.getMonth() == customer.getCustomerDOB().getMonth()) {
+        totalAmount = totalAmount - 0.1 * (totalAmount);
         System.out.println("You got 10% discount on your order...\n");
       }
       Double diff = walAmount - totalAmount;

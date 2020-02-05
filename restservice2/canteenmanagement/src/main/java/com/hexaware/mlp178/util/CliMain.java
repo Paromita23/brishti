@@ -123,8 +123,7 @@ class CliMain {
     order.setCustomerId(option.nextInt());
     Date today = new Date();
     Customer customer = OrderFactory.dao().findByCustomerId(order.getCustomerId());
-    if(today.getMonth() == customer.getCustomerDOB().getMonth())
-    {
+    if (today.getMonth() == customer.getCustomerDOB().getMonth()) {
       System.out.println("Its your birthday month...\n");
     }
     System.out.println("Enter Menu Id  ");

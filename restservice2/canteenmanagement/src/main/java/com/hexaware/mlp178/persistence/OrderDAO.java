@@ -89,7 +89,7 @@ public interface OrderDAO {
     Wallet getWalletInfo(@Bind("walType") WalletType walType, @Bind("cusId") int cusId);
     /**
    * @param walAmount for Updated Balance.
-   * @param walletType for Which walet to update.
+   * @param walType for Which walet to update.
    * @param cusId for which customer to update.
    * @return the showPrice.
    */
@@ -107,8 +107,13 @@ public interface OrderDAO {
     @GetGeneratedKeys
   int placeOrder(@BindBean Orders order);
 
+  /**
+   * @param refundAmount to return refund amount.
+   * @param walType to return wallet type.
+   * @param cusId for customer id.
+   * @return the refund status.
+   */
   @SqlUpdate("UPDATE WALLET SET WAL_AMOUNT=WAL_AMOUNT+:refundAmount WHERE WAL_TYPE=:walType AND CUS_ID=:cusId")
   int refundAmount(@Bind("refundAmount") double refundAmount, @Bind("walType") WalletType walType,
       @Bind("cusId") int cusId);
 }
-

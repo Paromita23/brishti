@@ -10,7 +10,9 @@
  <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <jersey.version>2.25</jersey.version>
-    <build.number>SNAPSHOT</build.number>
+    <build.number>0.0.1$-SNAPSHOT</build.number>
+    <maven.compiler.source>8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
   <build>
     <plugins>
