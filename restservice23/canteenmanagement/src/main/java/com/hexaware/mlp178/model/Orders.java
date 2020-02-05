@@ -93,15 +93,15 @@ public class Orders {
     Orders order = (Orders) obj;
     if (Objects.equals(orderId, order.orderId)
         && Objects.equals(customerId, order.customerId)
-        && Objects.equals(vendorId, order.vendorId)) { return true;
- 
+        && Objects.equals(vendorId, order.vendorId)) {
+      return true;
         // && Objects.equals(menuId, order.menuId)
         // && Objects.equals(orderStatus, order.orderStatus)
         // && Objects.equals(orderComments, order.orderComments)
         // && Objects.equals(orderTotalamount, order.orderTotalamount)
         // && Objects.equals(orderDate, order.orderDate)
         // && Objects.equals(orderQuantity, order.orderQuantity)
-        // && Objects.equals(walletType, order.walletType)     
+        // && Objects.equals(walletType, order.walletType)
     }
     return false;
   }
