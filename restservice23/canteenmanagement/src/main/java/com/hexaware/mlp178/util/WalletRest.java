@@ -5,8 +5,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import com.hexaware.MLP178.model.Wallet;
+
 import com.hexaware.MLP178.factory.WalletFactory;
+import com.hexaware.MLP178.model.Wallet;
 
 /**
  * This class provides a REST interface for the employee entity.
