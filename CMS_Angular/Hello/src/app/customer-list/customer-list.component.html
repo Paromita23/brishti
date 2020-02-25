@@ -1,0 +1,10 @@
+<p>customer-list works!</p>
+
+<select [(ngModel)]="customerName">
+    <option *ngFor="let c of customers" value={{c.customerName}}>
+        {{c.customerName}}
+    </option>
+</select>
+<p> Selected Name is : <b>{{customerName}}</b>
+</p>
+

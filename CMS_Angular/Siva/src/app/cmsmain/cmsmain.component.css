@@ -1,0 +1,56 @@
+body {
+    color:White;
+    margin-left: 30px;
+  }
+
+  .NorthIndia {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+  }
+  
+  .southIndia {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+
+.customerlogin {
+  background-color: rgb(223, 236, 189);
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 12px;
+  cursor: pointer;
+}
+
+.vendorlogin {
+  background-color: rgb(189, 236, 191);
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 12px;
+  cursor: pointer;
+}
+
+.customerlogin {font-size: 24px;}
+.vendorlogin {font-size: 24px;}
+
+

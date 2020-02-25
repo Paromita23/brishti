@@ -1,0 +1,34 @@
+ <!-- <p>vendordashboard works!</p> -->
+ <body>
+
+ <b>Welcome <i>{{userName}}</i></b>
+<div style="text-align:center">
+  <!-- <h1>
+    Welcome to {{ title }}!
+  </h1> -->
+  <!-- <img width="200" alt="Angular Logo" src="https://www.indianhealthyrecipes.com/wp-content/uploads/2019/02/chicken-biryani-recipe.jpg"> -->
+</div>
+<p class="right"><button [routerLink]="['/cmsmain',
+  {outlets: {'data': ['logout']}}]"class="Logout"><i>Logout</i></button> &nbsp;&nbsp;&nbsp;&nbsp;</p>
+ 
+<h2>CANTEEN MANAGEMENT: </h2>
+<app-vendor></app-vendor>
+<!-- <hr/>
+<br/>
+<app-vendor-order-history></app-vendor-order-history>
+<hr/>
+<br/>
+<app-vendor-pending-history></app-vendor-pending-history>
+<hr/>
+<br/> -->
+<br>
+<button  [routerLink]="['/vendordashboard',
+ {outlets: {'data': ['OrderHistory']}}]" class="OrderHistory">OrderHistory</button> &nbsp;&nbsp;&nbsp;&nbsp;
+ <button  [routerLink]="['/vendordashboard',
+ {outlets: {'data': ['Pending Orders']}}]" class="PendingOrders">Pending Orders</button> &nbsp;&nbsp;&nbsp;&nbsp;
+ <button  [routerLink]="['/vendordashboard',
+ {outlets: {'data': ['accept or reject']}}]" class="ACCEPTorREJECT">ACCEPT or REJECT</button> &nbsp;&nbsp;&nbsp;&nbsp;
+
+ 
+ <router-outlet name='data'></router-outlet>
+</body>

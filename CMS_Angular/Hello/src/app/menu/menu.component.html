@@ -1,0 +1,17 @@
+<!-- <app-first></app-first>
+<br/>
+<app-second></app-second>
+<br/>
+<app-calc></app-calc>
+<br/> -->
+
+<a [routerLink] = "['/menu',{outlets: {'data': ['first']}}]"> first </a> &nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink] = "['/menu',{outlets: {'data': ['second']}}]"> second </a> &nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink] = "['/menu',{outlets: {'data': ['calc']}}]"> calc </a> &nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink] = "['/menu',{outlets: {'data': ['employ']}}]"> employ </a> &nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink] = "['/menu',{outlets: {'data': ['employlist']}}]"> employ list </a> &nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink] = "['/menu',{outlets: {'data': ['customer']}}]"> customer </a> &nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink] = "['/menu',{outlets: {'data': ['customerlist']}}]"> customer list </a> &nbsp;&nbsp;&nbsp;&nbsp;
+<input type="button" value="calc" (click)="show()" />
+<br/><br/><br/>
+<router-outlet name = 'data' ></router-outlet>

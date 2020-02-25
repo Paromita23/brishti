@@ -1,0 +1,37 @@
+body {
+  color:black;
+  margin-left: 30px;
+} 
+
+tr:nth-child(1)
+{
+  background-color: black;
+}
+tr:nth-child(odd)
+{
+  background-color:whitesmoke;
+}
+tr:nth-child(even)
+{
+  background-color: grey;
+}
+
+ /* td[orderStatus="ACCEPTED"]:after {
+    color : green
+   }
+   
+   td[orderStatus="REJECTED"]:after {
+    color : red
+   }
+   
+   td[orderStatus="PENDING"]:after {
+    color : blue
+   } */
+
+   tbody tr:nth-child(even)
+   {
+     background: orange;
+   }
+
+
+

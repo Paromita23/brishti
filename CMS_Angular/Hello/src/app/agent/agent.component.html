@@ -1,0 +1,36 @@
+<p>agent works!</p>
+
+<table border="20">
+    <tr>
+        <th> AgentId </th>
+        <th> FirstName </th>
+        <th> LastName </th>
+        <th> City </th>
+        <th> Salary </th>
+        <th> Show </th>
+    </tr>
+    <tr *ngFor="let a of agent">
+        <td>
+            {{a.agentId}}
+        </td>
+        <td>
+            {{a.firstName}}
+        </td>
+        <td>
+            {{a.lastName}}
+        </td>
+        <td>
+            {{a.city}}
+        </td>
+        <td>
+            {{a.premium}}
+        </td>
+        <td>
+            <input type="button" value="show"
+            (click)="show(a.firstName)" />
+        </td>
+    </tr>
+</table>
+<p>
+    Selected agent Name is : <b>{{FName}}</b>
+</p>

@@ -1,0 +1,9 @@
+<p>employ-list works!</p>
+
+<select [(ngModel)]="ename">
+    <option *ngFor="let e of employs" value={{e.name}}>
+        {{e.name}}
+    </option>
+</select>
+<p> Selected Name is : <b>{{ename}}</b>
+</p>

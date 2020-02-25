@@ -1,0 +1,12 @@
+<p>acceptreject works!</p>
+<form>
+    OrderId:
+    <input type ="number" name="orderId" [(ngModel)]="orderId"/><br/><br/>
+    VendorId:
+    <input type ="number" name="vendorId" [(ngModel)]="vendorId"/><br/><br/>
+    status :
+    <input type ="text" name ="status"  [(ngModel)]="status" /><br/><br/>
+    <input type="button" value="AcceptedorRejectorder" (click)="AcceptedorRejeted()"/><br/><br/>
+    {{result}}
+    
+</form>
