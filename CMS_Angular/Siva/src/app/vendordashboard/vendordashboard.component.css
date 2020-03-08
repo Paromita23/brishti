@@ -1,0 +1,75 @@
+body {
+  color:whitesmoke;
+  margin-left: 30px;
+} 
+.OrderHistory {
+    background-color: red;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 12px;
+    cursor: pointer;
+  }
+
+  
+  body {
+    background-image: url("https://cmkt-image-prd.freetls.fastly.net/0.1.0/ps/3379856/910/606/m2/fpnw/wm1/pfhgxchmb2ttmklouoabchtigsyma36lawo3w97ycjnyahr5vku9hequuk1beweg-.jpg?1507495665&s=f543aff29ff26beaeeccd447677f3f56");
+    background-color: #16571f;
+    position: relative;
+    background-repeat:no-repeat;
+    background-size: cover;
+
+
+   }
+   .right{
+    text-align: right;
+  }
+  
+  .PendingOrders {
+    background-color: red;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 12px;
+    cursor: pointer;
+  }
+  
+  .ACCEPTorREJECT {
+    background-color: red;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 12px;
+    cursor: pointer;
+  }
+
+  .OrderHistory {font-size: 24px;}
+  .PendingOrders {font-size: 24px;}
+  .ACCEPTorREJECT{font-size: 24px;}
+  .Logout {
+    background-color: red;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 12px;
+    cursor: pointer;
+  }
+  
+  .Logout{font-size: 24px;}
+

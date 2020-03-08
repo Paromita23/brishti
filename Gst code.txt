@@ -1,0 +1,160 @@
+OrderDAO.java
+--------------------
+/**
+ * @param venId for Order details.
+ * @return the all the Order single record.
+ */
+@SqlQuery("select sum((ord_amount*5)/100) from order_details where ven_id=:venId and month(ord_time)=month(curdate())")
+double findByGst(@Bind("venId") int venId);
+
+----------------------------------------------------------
+
+@SqlUpdate("INSERT INTO GstDemo(venId, Cgst, Sgst, monthNo) VALUES(:venId, :cgst, :sgst, :monthNo)")
+@GetGeneratedKeys
+int payGst(@BindBean GstDemo order);
+
+----------------------------------------------------------
+----------------------------------------------------------
+
+OrderFactory.java
+---------------------
+
+   /**
+   * Show Customer Pending Orders.
+   * @param venId for pending orders.
+   * @return the array of order object.
+   */
+  public static double showgstbyMonth(final int venId) {
+    double res = dao().findByGst(venId);
+    return res;
+  }
+   /**
+   * Show Customer Pending Orders.
+   * @param gstDemo for pending orders.
+   * @return the array of order object.
+   */
+  public static String payGst(final GstDemo gstDemo) {
+    dao().payGst(gstDemo);
+    return "Gst Stored...";
+  }
+
+----------------------------------------------------------
+----------------------------------------------------------
+
+sql cmd
+-----------
+use MLP175;
+create table GstDemo 
+(
+   venId int,
+   Cgst numeric(9,2),
+   Sgst numeric(9,2),
+   monthNo int
+)
+
+----------------------------------------------------------
+----------------------------------------------------------
+
+GstDemo.java
+--------------
+
+package com.hexaware.MLP175.model;
+
+public class GstDemo {
+    private int venId;
+    private double cgst;
+    private double sgst;
+    private int monthNo;
+
+    public GstDemo(){
+
+    }
+    /**
+ * @param argVenId to initialize menu id.
+ * @param argCgst to initialize menu Name.
+ * @param argSgst to initialize menu price.
+ * @param argMonthNo to initialize menu Detail.
+ */
+  public GstDemo(final int argVenId, final double argCgst, final double argSgst,
+  final int argMonthNo) {
+this.venId = argVenId;
+this.cgst = argCgst;
+this.sgst = argSgst;
+this.monthNo = argMonthNo;
+}
+        /**
+     * @return this vendor ID.
+     */
+  public final int getVenId() {
+    return venId;
+  }
+    /**
+     * @param argVenId gets the food id.
+     */
+  public final void setVenId(final int argVenId) {
+
+    this.venId = argVenId;
+  }
+
+          /**
+     * @return this cgst.
+     */
+    public final double getCgst() {
+        return cgst;
+      }
+        /**
+         * @param argCgst gets the food id.
+         */
+      public final void setCgst(final double argCgst) {
+    
+        this.cgst = argCgst;
+      }
+             /**
+     * @return this cgst.
+     */
+    public final double getSgst() {
+        return sgst;
+      }
+        /**
+         * @param argSgst gets the food id.
+         */
+      public final void setSgst(final double argSgst) {
+    
+        this.sgst = argSgst;
+      }
+             /**
+     * @return this cgst.
+     */
+    public final int getMonthNo() {
+        return monthNo;
+      }
+        /**
+         * @param argMonthNo gets the food id.
+         */
+      public final void setMonth(final int argMonthNo) {
+    
+        this.monthNo = argMonthNo;
+      }
+}
+
+cliMain.java
+----------------
+
+  private void payGst() {
+    int venId;
+    System.out.println("Enter Vendor Id : ");
+    venId = option.nextInt();
+    double gst = OrderFactory.showgstbyMonth(venId);
+    GstDemo gstDemo = new GstDemo();
+    gstDemo.setVenId(venId);
+    gstDemo.setCgst(gst/2);
+    gstDemo.setSgst(gst/2);
+    gstDemo.setMonth(2);
+    System.out.println(OrderFactory.payGst(gstDemo));
+    // System.out.println(OrderFactory.showgstbyMonth(venId));
+    
+  }
+
+
+----------------------------------------------------------
+----------------------------------------------------------

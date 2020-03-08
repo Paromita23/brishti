@@ -1,0 +1,17 @@
+tr:nth-child(1)
+{
+  background-color: mediumturquoise;
+}
+
+tr:nth-child(odd)
+{
+  background-color:whitesmoke;
+}
+tr:nth-child(even)
+{
+  background-color: grey;
+}
+body {
+    color:black;
+    margin-left: 30px;
+  } 

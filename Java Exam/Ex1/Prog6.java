@@ -20,7 +20,7 @@ public class Prog6 {
         // 2.0F and 3.2F are of the type float. The result of 2.0F + 3.2F, which is 5.2F, is of the type float.
 
         float f1 = 2.5F; 
-        f1 = 2.0F + 3.2-
+        f1 = 2.0F + 3.2;
         // j is promoted to float and f1 + j is of the data type float. float to double assignment is permitted.
 
     //     int i = 10; 

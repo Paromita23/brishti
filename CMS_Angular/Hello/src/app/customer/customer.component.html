@@ -1,0 +1,43 @@
+<p>customer works!</p>
+
+<table border="5">
+    <tr>
+        <th> CUS_ID </th>
+        <th> CUS_NAME </th>
+        <th> CUS_EMAIL </th>
+        <th> CUS_PHNO </th>
+        <th> CUS_ADDRESS </th>
+        <th> CUS_PASSWORD </th>
+        <th> CUS_USERNAME </th>
+    </tr>
+    <tr *ngFor="let c of customers">
+        <td>
+            {{c.customerId}}
+        </td>
+        <td>
+            {{c.customerName}}
+        </td>
+        <td>
+            {{c.customerEmail}}
+        </td>
+        <td>
+            {{c.customerNumber}}
+        </td>
+        <td>
+            {{c.customerAddress}}
+        </td>
+        <td>
+            {{c.customerPassword}}
+        </td>
+        <td>
+            {{c.customerUsername}}
+        </td>
+        <td>
+            <input type="button" value="show"
+            (click)="show(c.customerName)" />
+        </td>
+    </tr>
+</table>
+
+<p> Selected Name is : <b>{{customerName}}</b>
+</p>

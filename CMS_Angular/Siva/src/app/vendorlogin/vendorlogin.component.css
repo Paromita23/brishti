@@ -1,0 +1,13 @@
+body {
+    background-image: url("https://eatlocal.org/assets/uploads/2018/12/girl_with_veggies-600x400.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    height: 100%;
+  }
+  
+   body {
+    color:black;
+    margin-left: 30px;
+  } 
+

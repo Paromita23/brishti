@@ -1,0 +1,9 @@
+<p>agent-list works!</p>
+
+<select [(ngModel)]="firstname">
+    <option *ngFor="let a of agent" value={{a.firstName}}>
+        {{a.firstName}}
+    </option>
+</select>
+<p> Selected Agent Name is : <b>{{firstname}}</b>
+</p>

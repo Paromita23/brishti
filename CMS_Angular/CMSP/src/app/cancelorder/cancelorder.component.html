@@ -1,0 +1,11 @@
+<p>cancelorder works!</p>
+<form>
+    Customer Id:
+    <input type = "number" name = "customerId" [(ngModel)]= "customerId"/><br/><br/>
+    Order Id:
+    <input type = "number" name = "orderId" [(ngModel)]= "orderId"/><br/><br/>
+    Status:
+    <input type = "text" name = "status" [(ngModel)]= "status"/><br/><br/>
+    <input type = "button" value = "CancelOrder" (click)="cancel()"/><br/><br/>
+    {{result}}
+</form>

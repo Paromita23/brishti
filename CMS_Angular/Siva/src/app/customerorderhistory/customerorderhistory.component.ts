@@ -1,0 +1,30 @@
+import { Component, OnInit } from '@angular/core';
+import { CustomerService } from '../customer.service';
+import { Observable} from 'rxjs';
+import 'rxjs/add/observable/of';
+import {Router} from '@angular/router';
+import { Customer } from '../customer';
+
+@Component({
+  selector: 'app-customerorderhistory',
+  templateUrl: './customerorderhistory.component.html',
+  styleUrls: ['./customerorderhistory.component.css']
+})
+export class CustomerOrderHistoryComponent implements OnInit {
+
+  customerName : string;
+  custId : number;
+  customer : Customer;
+  orders : Observable<Customer[]>;
+  constructor(private customerService : CustomerService) {
+    this.customer = localStorage.getItem('customer')? JSON.parse(localStorage.getItem('customer')):[];
+    // alert("Customer Id is " +this.customer.cusId);
+    this.orders=this.customerService.orderHistory(this.customer.customerId);
+     
+ 
+   }
+  ngOnInit() {
+   
+  }
+
+}

@@ -1,0 +1,31 @@
+<p>vendor-pending-history works!</p>
+
+<table border="3">
+    <tr>
+        <th>ORDER ID</th>
+        <th>CUSTOMER ID</th>
+        <th>VENDOR ID</th>
+        <th>MENU ID</th>
+        <th>ORDER STATUS</th>
+        <th>ORDER COMMENTS</th>
+        <th>AMOUNT</th>
+        <th>DATE</th>
+        <th>ORDER QUANTITY</th>
+        <th>WALLET TYPE</th>
+        
+
+    </tr>
+    <tr *ngFor="let u of orders | async">
+        <td>{{u.orderId}}</td>
+        <td>{{u.customerId}}</td>
+        <td>{{u.vendorId}}</td>
+        <td>{{u.menuId}}</td>
+        <td>{{u.orderStatus}}</td> 
+        <td>{{u.orderComments}}</td> 
+        <td>{{u.orderTotalamount}}</td>
+        <td>{{u.orderDate}}</td>
+        <td>{{u.orderQuantity}}</td>
+        <td>{{u.walletType}}</td> 
+        <!-- <td>{{u.ordComments}}</td>  -->
+    </tr>
+</table>

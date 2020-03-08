@@ -1,0 +1,37 @@
+<p>employ works!</p>
+
+<table border="3">
+    <tr>
+        <th> Empno </th>
+        <th> Name </th>
+        <th> Department </th>
+        <th> Designation </th>
+        <th> Salary </th>
+        <th> SHOW </th>
+    </tr>
+    <tr *ngFor="let e of employs">
+        <td>
+            {{e.empno}}
+        </td>
+        <td>
+            {{e.name}}
+        </td>
+        <td>
+            {{e.dept}}
+        </td>
+        <td>
+            {{e.desig}}
+        </td>
+        <td>
+            {{e.basic}}
+        </td>
+        <td>
+            <input type="button" value="show"
+            (click)="show(e.name)" />
+        </td>
+    </tr>
+</table>
+
+<p> Selected Name is : <b>{{empName}}</b>
+
+</p>
