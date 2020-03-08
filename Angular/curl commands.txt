@@ -1,0 +1,56 @@
+orders rest:
+----------------------
+CancelOrder
+curl -vvv -H "Accept:application/json" -X POST -H "Content-Type:application/json" "http://localhost:8080/MLP178-0.0.1-SNAPSHOT/api/Orders/CancelOrder/1/1201/PENDING"
+
+AcceptOrReject order
+curl -vvv -H "Accept:application/json" -X POST -H "Content-Type:application/json" "http://localhost:8080/MLP178-0.0.1-SNAPSHOT/api/Orders/acceptOrRejectOrder/1/1100/ACCEPTED"
+
+placeOrder:
+ curl -vvv -H "Accept:application/json" -X POST -H "Content-Type:application/json" -d '{"customerId":"1200","menuId":"1","vendorId":"1100","orderQuantity":"2","walletType":"PAYTM","orderDate":"2019-05-07","orderComments":"SPICY"}' "http://localhost:8080/MLP178-0.0.1-SNAPSHOT/api/Orders/placeOrder"
+
+showcustomer:
+curl -vvv http://localhost:8080/MLP178-0.0.1-SNAPSHOT/api/Orders/1200
+
+
+show vendor:
+curl -vvv http://localhost:8080/MLP178-0.0.1-SNAPSHOT/api/Orders/Ven/1100
+
+show order:
+curl -vvv http://localhost:8080/MLP178-0.0.1-SNAPSHOT/api/Orders
+
+pendingvendor:
+curl -vvv http://localhost:8080/MLP178-0.0.1-SNAPSHOT/api/Orders/pendingcus/1201
+
+
+Vendor Rest:
+-----------------------
+Vendor table:
+curl -vvv http://localhost:8080/MLP178-0.0.1-SNAPSHOT/api/vendor
+
+showbyVendorName
+curl -vvv http://localhost:8080/MLP178-0.0.1-SNAPSHOT/api/vendor/sugumaran
+
+vendorAutenticate
+ curl - vvv http://localhost:8080/MLP178-0.0.1-SNAPSHOT/api/vendor/sugumaran/sugumaran123
+
+Menu Rest:
+
+curl -vvv http://localhost:8080/MLP178-0.0.1-SNAPSHOT/api/menu
+
+Customer Rest:
+----------------------
+show customer
+curl -vvv http://localhost:8080/MLP178-0.0.1-SNAPSHOT/api/Customer
+
+showbyCustomername:
+curl -vvv http://localhost:8080/MLP178-0.0.1-SNAPSHOT/api/Customer/MOHAN
+
+customer autenticate:
+curl -vvv http://localhost:8080/MLP178-0.0.1-SNAPSHOT/api/Customer/MOHAN/MOHAN12
+
+
+Wallet Rest:
+-----------------
+curl -vvv http://localhost:8080/MLP178-0.0.1-SNAPSHOT/api/Wallet/Wallet/1200
+
