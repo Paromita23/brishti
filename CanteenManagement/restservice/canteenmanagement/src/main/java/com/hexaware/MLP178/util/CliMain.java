@@ -12,7 +12,7 @@ import com.hexaware.MLP178.factory.OrderFactory;
 import com.hexaware.MLP178.factory.PromoFactory;
 import com.hexaware.MLP178.model.Orders;
 import com.hexaware.MLP178.model.Promo;
-import com.hexaware.MLP178.model.PromoFactory;
+//import com.hexaware.MLP178.model.PromoFactory;
 import com.hexaware.MLP178.factory.CustomerFactory;
 import com.hexaware.MLP178.model.Customer;
 import java.text.ParseException;

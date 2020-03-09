@@ -1,10 +1,11 @@
 
-<table border="3">
+<table border="30" bgcolor = "black">
     <tr>
-        <th>cus ID</th>
-        <th>ven ID</th>
-        <th>status</th>
+        <th>CUS ID</th>
+        <th>VEN ID</th>
+        <th>STATUS</th>
     </tr>
+    
     <tr *ngFor="let u of freegift | async">
         <td>{{u.custId}}</td>
         <td>{{u.venId}}</td>

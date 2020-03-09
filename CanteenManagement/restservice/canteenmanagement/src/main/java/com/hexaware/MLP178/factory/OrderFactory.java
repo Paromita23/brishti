@@ -93,7 +93,6 @@ public class OrderFactory {
   public static String payGst(final GstDemo gstDemo) {
     dao().payGst(gstDemo);
     return "Gst Stored...";
-    
   }
   /**
    * Show Vendor Orders History.
@@ -200,7 +199,7 @@ public class OrderFactory {
         dao().updategft(val,order.getCustomerId());
         return "congrats";
       } else{
-        return "u have used the odfer";
+        return "You have used the offer";
       }
     }
     //return "Order Placed Successfully For the Registered Address...\nSoon you will be notified by our Vendor...";   

@@ -96,8 +96,8 @@ public interface OrderDAO {
    * @return the order single record.
    */
     @SqlUpdate("INSERT INTO GstDemo(venId, Cgst, Sgst, monthNo) VALUES(:venId, :cgst, :sgst, :monthNo)")
-@GetGeneratedKeys
-int payGst(@BindBean GstDemo order);
+    @GetGeneratedKeys
+      int payGst(@BindBean GstDemo order);
     /**
    * @param walAmount for Updated Balance.
    * @param walType for Which walet to update.
