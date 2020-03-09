@@ -1,0 +1,40 @@
+<p>vendor-order-history works!</p>
+<head>
+    <link rel="vendor-order-history" type="text/css" href="vendor-order-history.component.css">
+</head>
+<input
+    type="text"
+    class="form-control"
+    name="searchString"
+    placeholder="Type to search..."
+    [(ngModel)]="searchString"
+  />
+<table border="15" bgcolor="black">
+    <tr>
+        <th>ORDER ID</th>
+        <th>CUSTOMER ID</th>
+        <th>VENDOR ID</th>
+        <th>MENU ID</th>
+        <th>ORDER STATUS</th>
+        <th>ORDER COMMENTS</th>
+        <th>AMOUNT</th>
+        <th>DATE</th>
+        <th>ORDER QUANTITY</th>
+        <th>WALLET TYPE</th>
+        
+
+    </tr>
+    <tr *ngFor="let u of orders | async | customFilter :  {orderId: searchString, customerId:searchString, walletType:searchString,orderQuantity:searchString}; let i = index">
+        <td>{{u.orderId}}</td>
+        <td>{{u.customerId}}</td>
+        <td>{{u.vendorId}}</td>
+        <td>{{u.menuId}}</td>
+        <td>{{u.orderStatus}}</td> 
+        <td>{{u.orderComments}}</td> 
+        <td>{{u.orderTotalamount}}</td>
+        <td>{{u.orderDate}}</td>
+        <td>{{u.orderQuantity}}</td>
+        <td>{{u.walletType}}</td> 
+        <!-- <td>{{u.ordComments}}</td>  -->
+    </tr>
+</table>

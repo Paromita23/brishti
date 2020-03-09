@@ -1,0 +1,16 @@
+body {
+    background-image: url("https://images.unsplash.com/photo-1543353071-873f17a7a088?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    height: 100%;
+  }
+  
+   body {
+    color:black;
+    margin-left: 30px;
+    border: 15px solid rgb(39, 54, 59);
+      border-radius: 24px;
+      
+  } 
+

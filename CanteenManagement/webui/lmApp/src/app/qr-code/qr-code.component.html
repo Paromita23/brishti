@@ -1,0 +1,9 @@
+<p>
+  qr-code works!
+</p>
+<input type="button" value="Generate QR" (click)="displayqr()" />   <br/><br/>
+    <qrcode [qrdata]="myAngularxQrCode" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+     {{result}}
+     {{myAngularxQrCode}}
+     <!-- <input type="button" value="Accept or Reject Order" (click)="acceptOrReject()" /> <br/><br/>
+     {{result}} -->

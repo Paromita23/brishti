@@ -1,0 +1,14 @@
+
+<table border="3">
+    <tr>
+        <th>cus ID</th>
+        <th>ven ID</th>
+        <th>status</th>
+    </tr>
+    <tr *ngFor="let u of freegift | async">
+        <td>{{u.custId}}</td>
+        <td>{{u.venId}}</td>
+        <td>{{u.giftStat}}</td>
+    </tr>
+</table>
+<br/><br/>

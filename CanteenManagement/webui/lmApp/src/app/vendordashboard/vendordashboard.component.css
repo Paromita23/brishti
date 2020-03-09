@@ -1,0 +1,76 @@
+body {
+  color:black;
+  margin-left: 30px;
+  font-family:Arial Rounded MT Bold;
+} 
+.OrderHistory {
+    background-color: red;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 12px;
+    cursor: pointer;
+  }
+
+  
+  body {
+    background-image: url("https://previews.123rf.com/images/nadianb/nadianb1801/nadianb180100100/93275273-superfoods-on-white-background-organic-food-and-healthy-vegan-food-legumes-nuts-seeds-greens-oil-and.jpg");
+    background-color: #16571f;
+    position: relative;
+    background-repeat:no-repeat;
+    background-size: cover;
+
+
+   }
+   .right{
+    text-align: right;
+  }
+  
+  .PendingOrders {
+    background-color: red;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 12px;
+    cursor: pointer;
+  }
+  
+  .ACCEPTorREJECT {
+    background-color: red;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 12px;
+    cursor: pointer;
+  }
+
+  .OrderHistory {font-size: 24px;}
+  .PendingOrders {font-size: 24px;}
+  .ACCEPTorREJECT{font-size: 24px;}
+  .Logout {
+    background-color: red;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 12px;
+    cursor: pointer;
+  }
+  
+  .Logout{font-size: 24px;}
+

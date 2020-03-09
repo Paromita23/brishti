@@ -1,0 +1,40 @@
+<!-- <p>dashboard works!</p> -->
+<body>
+<b>Welcome <i>{{userName}}</i></b>
+<div style="text-align:center">
+  <h1>
+    Welcome to EAT...OYE!!!
+  </h1>
+</div>
+<p class="right"><button [routerLink]="['/cmsmain',
+  {outlets: {'data': ['logout']}}]"class="Logout"><i>Logout</i></button> &nbsp;&nbsp;&nbsp;&nbsp;</p>
+  
+<h2>CANTEEN MANAGEMENT: </h2>
+ 
+<app-customer></app-customer>
+<!-- <hr/>
+<br/>
+<app-customerorderhistory></app-customerorderhistory>
+<hr/>
+<br/>
+<app-customer-pending-history></app-customer-pending-history>
+<hr/>
+<br/> -->
+<div style="text-align:center">
+<button  [routerLink]="['/dashBoard',
+ {outlets: {'data': ['OrderHistory']}}]"class="OrderHistory"><b>OrderHistory</b></button> &nbsp;&nbsp;&nbsp;&nbsp;
+ <button [routerLink]="['/dashBoard',
+ {outlets: {'data': ['Pending Orders']}}]"class="PendingOrders"><b>Pending Orders</b></button> &nbsp;&nbsp;&nbsp;&nbsp;
+ <button  [routerLink]="['/dashBoard',
+ {outlets: {'data': ['wallet Info']}}]"class="walletInfo"><b>Wallet Info</b></button> &nbsp;&nbsp;&nbsp;&nbsp;
+ <button  [routerLink]="['/dashBoard',
+ {outlets: {'data': ['placeorder']}}]"class="Placeorders"><b>Place orders</b></button> &nbsp;&nbsp;&nbsp;&nbsp;
+ <button  [routerLink]="['/dashBoard',
+ {outlets: {'data': ['Freegift']}}]"class="freegift"><b>GIFT</b></button> &nbsp;&nbsp;&nbsp;&nbsp;
+ <!-- <button [routerLink]="['/dashBoard',
+ {outlets: {'data': ['cancelorder']}}]"class="Cancelorders">Cancel orders</button> &nbsp;&nbsp;&nbsp;&nbsp;
+  -->
+</div>
+ <router-outlet name='data'></router-outlet>
+
+</body>

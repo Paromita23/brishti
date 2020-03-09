@@ -1,0 +1,38 @@
+/* body {
+    background-image: url("https://eatlocal.org/assets/uploads/2018/12/girl_with_veggies-600x400.jpg");
+    background-color: #cccccc;
+    position: relative;
+
+   } */
+/* 
+tr:nth-child(1)
+{
+  background-color: mediumturquoise;
+}
+
+tr:nth-child(1)
+{
+  background-color: skyblue;
+} */
+body {
+  color:black;
+  margin-left: 30px;
+} 
+
+tr:nth-child(1)
+{
+  background-color: black;
+}
+tr:nth-child(odd)
+{
+  background-color:rosybrown;
+}
+tr:nth-child(even)
+{
+  background-color: grey;
+}
+tbody tr:nth-child(even)
+{
+  background:rgb(180, 188, 143);
+  ;
+}
