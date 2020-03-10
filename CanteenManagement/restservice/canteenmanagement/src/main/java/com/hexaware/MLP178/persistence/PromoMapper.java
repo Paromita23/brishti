@@ -3,7 +3,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import com.hexaware.MLP178.model.Promo;
 import com.hexaware.MLP178.model.PromoCode;
-import com.hexaware.MLP178.model.PromoStatus;
+//import com.hexaware.MLP178.model.PromoStatus;
 
 
 import org.skife.jdbi.v2.tweak.ResultSetMapper;
@@ -26,8 +26,8 @@ public class PromoMapper implements ResultSetMapper<Promo> {
        */
     String status = rs.getString("PROMO_CODE");
     PromoCode mstatus = PromoCode.valueOf(status);
-    String status1 = rs.getString("PROMO_STATUS");
-    PromoStatus mstatus1 = PromoStatus.valueOf(status1);
-    return new Promo(rs.getInt("PROMO_ID"), mstatus, rs.getInt("PROMO_AMOUNT"), rs.getInt("CUS_ID"), mstatus1);
+    //String status1 = rs.getString("PROMO_STATUS");
+    //PromoStatus mstatus1 = PromoStatus.valueOf(status1);
+    return new Promo(rs.getInt("VEN_ID"), mstatus, rs.getDate("DATEOFCOUPON"), rs.getInt("PROMOSTATUS"));
   }
 }

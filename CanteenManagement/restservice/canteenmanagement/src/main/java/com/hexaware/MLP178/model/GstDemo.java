@@ -1,5 +1,7 @@
 package com.hexaware.MLP178.model;
 
+import java.util.Objects;
+
 public class GstDemo {
     private int venId;
     private double cgst;
@@ -22,7 +24,31 @@ this.cgst = argCgst;
 this.sgst = argSgst;
 this.monthNo = argMonthNo;
 }
-        /**
+
+@Override
+    public final boolean equals(final Object obj) {
+    if (obj == null) {
+      return false;
+    }
+    if (getClass() != obj.getClass()) {
+      return false;
+    }
+    GstDemo gst = (GstDemo) obj;
+    if (Objects.equals(venId, gst.venId) && Objects.equals(cgst, gst.cgst)
+        && Objects.equals(sgst, gst.sgst) && Objects.equals(monthNo, gst.monthNo)) {
+      return true;
+    }
+    return false;
+  }
+  @Override
+    public final int hashCode() {
+    return Objects.hash(venId);
+  }
+  @Override
+    public final String toString() {
+    return String.format("%10s %10s %10s %10s", venId, cgst, sgst, monthNo);
+  }
+    /**
      * @return this vendor ID.
      */
   public final int getVenId() {
@@ -71,7 +97,7 @@ this.monthNo = argMonthNo;
         /**
          * @param argMonthNo gets the month no.
          */
-      public final void setMonth(final int argMonthNo) {
+      public final void setMonthNo(final int argMonthNo) {
     
         this.monthNo = argMonthNo;
       }

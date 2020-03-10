@@ -1,13 +1,14 @@
 package com.hexaware.MLP178.factory;
 import com.hexaware.MLP178.model.MenuCat;
 import com.hexaware.MLP178.persistence.OrderDAO;
+import com.mysql.cj.x.protobuf.MysqlxCrud.Order;
 //import com.hexaware.MLP178.fact.OrderFactory;
 import com.hexaware.MLP178.model.OrderStatus;
 import com.hexaware.MLP178.model.Orders;
 import com.hexaware.MLP178.model.Menu;
 import com.hexaware.MLP178.model.Wallet;
 import com.hexaware.MLP178.model.Freegift;
-
+import com.hexaware.MLP178.model.GstDemo;
 //import com.hexaware.MLP178.model.Vendor;
 import com.hexaware.MLP178.model.WalletType;
 
@@ -296,11 +297,7 @@ public class OrderFactoryTest {
   @Test
   public final void testPlaceOrder(@Mocked final OrderDAO dao) throws ParseException {
     final Menu m2 = new Menu(101, MenuCat.VEG, "PODI DOSA", 1, 80, 105, "**");
-    //final Menu m3 = new Menu(102, MenuCat.NONVEG, "Biryani", 1, 1500, 110, "****");
-    // final Wallet w1 = new Wallet(1, WalletType.CREDIT_CARD, 1500.45, 1);
-    // final Wallet w2 = new Wallet(2, WalletType.DEBIT_CARD, 2000.65, 2);
     final Wallet w3 = new Wallet(3, WalletType.PAYTM, 2500.45, 1);
-    //final Wallet w4 = new Wallet(4, WalletType.PAYTM, 3000.65, 2);
     final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     final String ord1 = new String("2020-03-18");
     final Date orDate1 = sdf.parse(ord1);
@@ -309,14 +306,33 @@ public class OrderFactoryTest {
     final String ord3 = new String("2020-01-18");
     final Date orDate3 = sdf.parse(ord3);
     final Orders order1 = new Orders();
+    final Orders order2 = new Orders();
+    final Orders order3 = new Orders();
+    // final ArrayList<Orders> or = new ArrayList<Orders>();
+    new Expectations() {
+      {
+        dao.findByMenuId(1); result = m2;
+      //   dao.findByMenuId(20); result = m3;
+        dao.getWalletInfo(WalletType.PAYTM, 100); result = w3;
+        dao.placeOrder(order1);
+        dao.placeOrder(order2);
+        dao.placeOrder(order3);
+      }
+    };
+    new MockUp<OrderFactory>() {
+        @Mock
+        OrderDAO dao() {
+          return dao;
+        }
+      };
     
     order1.setOrderId(1);
-    order1.setCustomerId(1);
-    order1.setVendorId(1000);
-    order1.setMenuId(101);
+    order1.setCustomerId(1200);
+    order1.setVendorId(1100);
+    order1.setMenuId(1);
     order1.setOrderStatus(OrderStatus.ACCEPTED);
     order1.setOrderComments("Spicy");
-    order1.setOrderTotalamount(45.00000);
+    order1.setOrderTotalamount(50.00000);
     order1.setOrderDate(orDate1); 
     order1.setOrderQuantity(1);
     order1.setWalletType(WalletType.PAYTM);
@@ -326,20 +342,17 @@ public class OrderFactoryTest {
     freegift.setVenId(1100);
     freegift.setGiftStat(1);
 
-
-    final Orders order2 = new Orders();
     order2.setOrderId(2);
-    order2.setCustomerId(1);
-    order2.setVendorId(1000);
-    order2.setMenuId(102);
+    order2.setCustomerId(1201);
+    order2.setVendorId(1100);
+    order2.setMenuId(1);
     order2.setOrderStatus(OrderStatus.PENDING);
     order2.setOrderComments("Spicy");
-    order2.setOrderTotalamount(4500.00);
+    order2.setOrderTotalamount(50.00);
     order2.setOrderDate(orDate1);
-    order2.setOrderQuantity(3);
+    order2.setOrderQuantity(1);
     order2.setWalletType(WalletType.PAYTM);
 
-    final Orders order3 = new Orders();
     order3.setOrderId(1);
     order3.setCustomerId(1);
     order3.setVendorId(1000);
@@ -362,35 +375,43 @@ public class OrderFactoryTest {
     order4.setOrderDate(orDate3);
     order4.setOrderQuantity(3);
     order4.setWalletType(WalletType.PAYTM);
-    new Expectations() {
-        {
-          dao.findByMenuId(101); result = m2;
-          //dao.counts(1200); result = 3;
-        // dao.findByMenuId(20); result = m3;
-          dao.getWalletInfo(WalletType.PAYTM, 1); result = w3;
-        //   dao.getWallentInfo("NETBANKING", 100); result = w1;
-        //   dao.getWallentInfo("PAYTM", 200); result = w4;
-        //   dao.getWallentInfo("NETBANKING", 200); result = w2;
-          dao.placeOrder(order1);
-          dao.placeOrder(order2);
-          dao.placeOrder(order3);
-        }
-      };
-    new MockUp<OrderFactory>() {
-        @Mock
-        OrderDAO dao() {
-          return dao;
-        }
-      };
     String result1 = OrderFactory.placeOrder(order1);
-    assertEquals(result1,
-        "u have used the odfer");
+    assertEquals(result1, "Insufficient Funds To Place the Order...");
     String result2 = OrderFactory.placeOrder(order2);
-    assertEquals(result2,
-        "u have used the odfer");
+    assertEquals(result2,"Insufficient Funds To Place the Order...");
     String result3 = OrderFactory.placeOrder(order3);
-    assertEquals(result3, "Insufficient Funds To Place the Order...");
+    assertEquals(result3, "Order Cannot be Placed yesterday...");
     String result4 = OrderFactory.placeOrder(order4);
     assertEquals(result4, "Order Cannot be Placed yesterday...");
+  }
+
+  /**
+   * Tests that a list with some employees is handled correctly.
+   * @param dao mocking the dao class.
+   * @throws ParseException for date format validation.
+   */
+  @Test
+  public final void testbymonth(@Mocked final OrderDAO dao) throws ParseException {
+    final GstDemo v4 = new GstDemo(1100, 78.75, 78.75, 2);
+    final GstDemo v5 = new GstDemo(1101, 67.50, 67.50, 2);
+    new Expectations() {
+      {
+        dao.findByGst(1100); result = v4;
+        dao.findByGst(1101); result = v5;
+        dao.findByGst(1110); result = null;
+      }
+    };
+    new MockUp<OrderFactory>() {
+      @Mock
+      OrderDAO dao() {
+        return dao;
+      }
+    };
+    double order1 = OrderFactory.showgstbyMonth(1100);
+    assertNotNull(order1);
+    double order2 = OrderFactory.showgstbyMonth(1101);
+    assertNotNull(order2);
+    //Orders[] vendor3 = OrderFactory.showCustomerHistory(3);
+    //assertNull(vendor3);
   }
 }

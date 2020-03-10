@@ -85,4 +85,3 @@ public class FreegiftFactoryTest {
     assertEquals(1, mn1[1].getGiftStat());
   }
 }
-

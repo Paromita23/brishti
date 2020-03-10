@@ -8,8 +8,10 @@ import javax.ws.rs.core.MediaType;
 import com.hexaware.MLP178.model.Orders;
 import com.hexaware.MLP178.factory.OrderFactory;
 import javax.ws.rs.PathParam;
-import javax.ws.rs.Consumes;
 
+import java.text.ParseException;
+
+import javax.ws.rs.Consumes;
 
 /**
  * This class provides a REST interface for the employee entity.
@@ -18,6 +20,7 @@ import javax.ws.rs.Consumes;
 public class OrderRest {
   /**
    * Returns Orders details.
+   * 
    * @return the Orders details
    */
   @GET
@@ -26,8 +29,10 @@ public class OrderRest {
     final Orders[] orders = OrderFactory.showOrder();
     return orders;
   }
+
   /**
    * Returns Menu details.
+   * 
    * @param id to get name.
    * @return the menu details
    */
@@ -38,8 +43,10 @@ public class OrderRest {
     final Orders[] cusid = OrderFactory.showCustomerHistory(id);
     return cusid;
   }
+
   /**
    * Returns Menu details.
+   * 
    * @param venid to get name.
    * @return the menu details
    */
@@ -50,39 +57,45 @@ public class OrderRest {
     final Orders[] vendorid = OrderFactory.showVendorHistory(venid);
     return vendorid;
   }
+
   /**
    * Returns Order details.
+   * 
    * @return the Order details.
    * @param id for pending customers
    */
   @GET
   @Path("/pendingcus/{id}")
   @Produces(MediaType.APPLICATION_JSON)
-   public final Orders[] orderListById(@PathParam("id") final int id) {
+  public final Orders[] orderListById(@PathParam("id") final int id) {
     final Orders[] order = OrderFactory.showpendingCustomerOrders(id);
     if (order == null) {
       throw new NotFoundException("No such Customer ID: " + id);
     }
     return order;
   }
+
   /**
    * Returns Order details.
+   * 
    * @return the Order details.
    * @param id for pending vendors.
    */
   @GET
   @Path("/pendingven/{id}")
   @Produces(MediaType.APPLICATION_JSON)
-   public final Orders[] orderTestById(@PathParam("id") final int id) {
+  public final Orders[] orderTestById(@PathParam("id") final int id) {
     final Orders[] order = OrderFactory.showpendingVendorOrders(id);
     if (order == null) {
       throw new NotFoundException("No such Vendor ID: " + id);
     }
     return order;
   }
+
   /**
    * Returns Menu details.
-   * @param ordid for cancel order.
+   * 
+   * @param ordid  for cancel order.
    * @param custid for customer id.
    * @param status for status.
    * @return the cancelled order details
@@ -91,20 +104,23 @@ public class OrderRest {
   @Path("CancelOrder/{ordid}/{custid}/{status}")
   @Produces(MediaType.APPLICATION_JSON)
   public final String cancelOrder(@PathParam("ordid") final int ordid, @PathParam("custid") final int custid,
-                                  @PathParam("status") final String status) {
+      @PathParam("status") final String status) {
     String result = OrderFactory.cancelOrder(ordid, custid, status);
     return result;
   }
+
   /**
    * Returns Menu details.
+   * 
    * @param order for cancel order.
    * @return the cancelled order details
+   * @throws ParseException
    */
   @POST
   @Path("/placeOrder")
   @Consumes(MediaType.APPLICATION_JSON)
   @Produces(MediaType.APPLICATION_JSON)
-  public final String placeorder(final Orders order) {
+  public final String placeorder(final Orders order) throws ParseException {
     String result = OrderFactory.placeOrder(order);
     return result;
   }

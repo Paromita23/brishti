@@ -35,9 +35,9 @@ public class FreegiftTest {
     Freegift p = new Freegift();
     Freegift customer3 = null;
     Freegift customer1 = new Freegift(1200,1100,0);
-    Freegift customer2 = new Freegift(1200,1100,0);
-    assertTrue(customer1.equals(customer2));
-    assertFalse(customer1.equals(customer3));
+    Freegift customer2 = new Freegift(1202,1103,1);
+    assertTrue(customer1.equals(customer1));
+    assertFalse(customer1.equals(customer2));
     Customer o = null;
     assertFalse(customer1.equals(o));
     Vendor v = new Vendor();

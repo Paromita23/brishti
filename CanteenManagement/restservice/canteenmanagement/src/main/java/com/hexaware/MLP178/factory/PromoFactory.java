@@ -26,15 +26,15 @@ public class PromoFactory {
     DbConnection db = new DbConnection();
     return db.getConnect().onDemand(PromoDAO.class);
   }
-  /**
-   * Call the data base connection.
-   * @return the array of menu object.
-   * @param cusID to show customer id.
-   */
-  public static Promo[] showPromo(final int cusID) {
-    List<Promo> promo = dao().showByPromoId(cusID);
-    return promo.toArray(new Promo[promo.size()]);
-  }
+  // /**
+  //  * Call the data base connection.
+  //  * @return the array of menu object.
+  //  * @param cusID to show customer id.
+  //  */
+  // public static Promo[] showPromo(final int cusID) {
+  //   List<Promo> promo = dao().showByPromoId(cusID);
+  //   return promo.toArray(new Promo[promo.size()]);
+  // }
   /**
    * Call the data base connection.
    * @return the array of menu object.
@@ -43,24 +43,24 @@ public class PromoFactory {
     List<Promo> promo = dao().show();
     return promo.toArray(new Promo[promo.size()]);
   }
+  // /**
+  //  * Call the data base connection.
+  //  * @param promoCode to show the promo code.
+  //  * @param cusId to show the customer id.
+  //  * @return the array of promo object.
+  //  */
+  // public static int validatePromo(final String promoCode, final int cusId) {
+  //   int count = dao().authenticate(promoCode, cusId);
+  //   return count;
+  // }
   /**
    * Call the data base connection.
    * @param promoCode to show the promo code.
-   * @param cusId to show the customer id.
+   * @param venId to show the customer id.
    * @return the array of promo object.
    */
-  public static int validatePromo(final String promoCode, final int cusId) {
-    int count = dao().authenticate(promoCode, cusId);
-    return count;
-  }
-  /**
-   * Call the data base connection.
-   * @param promoCode to show the promo code.
-   * @param cusId to show the customer id.
-   * @return the array of promo object.
-   */
-  public static Promo getPromoInfo(final int cusId, final String promoCode) {
-    Promo count = dao().applyPromo(cusId, promoCode);
+  public static Promo getPromoInfo(final int venId, final String promoCode) {
+    Promo count = dao().applyPromo(venId, promoCode);
     return count;
   }
 }

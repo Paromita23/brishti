@@ -137,44 +137,30 @@ public interface OrderDAO {
   @SqlUpdate("UPDATE WALLET SET WAL_AMOUNT=WAL_AMOUNT+:refundAmount WHERE WAL_TYPE=:walType AND CUS_ID=:cusId")
   int refundAmount(@Bind("refundAmount") double refundAmount, @Bind("walType") WalletType walType,
       @Bind("cusId") int cusId);
-      
-  /**
-    * @param order to initialize order.
-    * @return the showPrice.
-  */
 
-  @SqlUpdate("insert into Freegift(CUS_ID,VEN_ID,GIFTSTAT) values(:custId,:venId,:giftStat);")
-  @GetGeneratedKeys
-int place(@BindBean Freegift fregft);
+/**
+* @param cusId for customer id.
+* @return total no. of orders per customer.
+*/
+@SqlQuery("select count(*),Sum(ORD_TOTAL_AMT)>500 from Orders where CUS_ID=:cusId AND ORD_DATE='2020-03-11'")
+int countbyOrder(@Bind("cusId") int cusId);
 
- /**
-    * @param gftstats for Which walet to refund.
-    * @param cusId for which refund to update.
-     * @return the refund status.
-     */
-    
-  @SqlUpdate("UPDATE FREEGIFT SET giftstat=:gftstats WHERE CUS_ID=:cusId")
-  int updategft(@Bind("gftstats") int gftstats, @Bind("cusId") int cusId);
-        /**
-    @param cusid for accepting cusid
-    @return count for authentication.
-     */
-     @SqlQuery("select count(*) from Orders where Cus_id=:cusid AND Ord_date=curdate() and Ord_date between '2020-02-26' AND '2020-03-04';")
-     int counts(@Bind("cusid") int cusid);
-     /**
-    @param cusid for accepting cusid
-    @return count for authentication.
-     */
-    @SqlQuery("select count(*) from orders where Ord_date between '2020-02-26' AND '2020-03-04' and cus_id =:cusid")
-    int placecount(@Bind("cusid") int cusid);
+/**
+ * @param cusId for customer id.
+ * @return the no. of gifts per customer.
+ */
 
-     /**
-     * @param CUSid for read customer info.
-     * @return the all the Menu record.
-     */
-  @SqlQuery("select Sum(ORD_TOTAL_AMT) from Orders where Cus_id=:CUSid  AND Ord_date=curdate() AND Ord_date between '2020-02-26' AND '2020-03-04';")
-  double sumofamnt(@Bind("CUSid") int CUSid);
-  
+@SqlQuery("select count(*) from freegift where CUST_ID=:cusId")
+int countgiftbyCus(@Bind("cusId") int cusId);
+
+/**
+ * @param order to show the orders.
+ * @return free gifts.
+ */
+
+@SqlUpdate("INSERT INTO freegift( CUS_ID, VEN_ID, GIFT_STAT) VALUES(:cusId, :venId, :gftstat)")
+@GetGeneratedKeys
+int freegift(@BindBean Freegift order);
   /**
    * @param cusId for customer id.
    * @param promoCode for promo code.

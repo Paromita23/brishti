@@ -23,16 +23,4 @@ public class FreegiftRest {
     final Freegift[] menu = FreegiftFactory.showgft();
     return menu;
   }
-//   /**
-//    * Returns Menu details.
-//    * @param menuId tp read menu id.
-//    * @return the menu details
-//    */
-//   @GET
-//   @Path("showmenu/{menuId}")
-//   @Produces(MediaType.APPLICATION_JSON)
-//   public final Menu listMenu(@PathParam("menuId") final int menuId) {
-//     final Menu menu = MenuFactory.showMenu(menuId);
-//     return menu;
-//   }
 }

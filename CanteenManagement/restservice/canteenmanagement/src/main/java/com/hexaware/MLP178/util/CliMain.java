@@ -9,9 +9,9 @@ import com.hexaware.MLP178.model.Menu;
 import com.hexaware.MLP178.factory.VendorFactory;
 import com.hexaware.MLP178.model.Vendor;
 import com.hexaware.MLP178.factory.OrderFactory;
-import com.hexaware.MLP178.factory.PromoFactory;
+//import com.hexaware.MLP178.factory.PromoFactory;
 import com.hexaware.MLP178.model.Orders;
-import com.hexaware.MLP178.model.Promo;
+//mport com.hexaware.MLP178.model.Promo;
 //import com.hexaware.MLP178.model.PromoFactory;
 import com.hexaware.MLP178.factory.CustomerFactory;
 import com.hexaware.MLP178.model.Customer;
@@ -96,9 +96,9 @@ class CliMain {
         case 12:
           payGst();
           break;
-        case 13:
-          promo();
-          break;
+        // case 13:
+        //   promo();
+        //   break;
         case 14:
           Runtime.getRuntime().halt(0);
         default:
@@ -111,51 +111,50 @@ class CliMain {
     option.nextLine();
     mainMenu();
   }
-  private void promo() {
-    Orders order = new Orders();
-    Promo[] promo = PromoFactory.showPromo(order.getCustomerId());
-    System.out.println("----------------------------------------------------"
-        + "----------------------------------------------------------------------");
-    System.out.printf("%-15s %-15s %-15s %-15s %-15s", "Promo ID", "Promo Code", "Promo Amt", "Customer ID",
-        "Promo Status");
-    System.out.println();
-    System.out.println("----------------------------------------------------"
-        + "----------------------------------------------------------------------");
-    for (Promo p : promo) {
-      System.out.println(p);
-      System.out.println();
-    }
-    String status1;
-    int count1 = 0;
-    do {
-      System.out.println("Enter promo code (yes/No) : ");
-      status1 = option.next();
-      if (status1.equalsIgnoreCase("YES")) {
-        System.out.println("Enter promo code : ");
-        String pc = option.next();
-        double pamount = 0;
-        order.setPromoCode(pc);
-        try {
-          count1 = PromoFactory.validatePromo(pc, order.getCustomerId());
-        } catch (IllegalArgumentException e) {
-          System.out.println(e.getMessage());
-          mainMenu();
-        }
-        if (count1 == 1) {
-          System.out.println("Promo Applied");
-          Promo promoFound = PromoFactory.getPromoInfo(order.getCustomerId(), pc);
-          pamount = promoFound.getpromoAmount();
-          System.out.println(promoFound.getpromoAmount());
-          order.setOrderTotalamount(pamount);
-        } else {
-          System.out.println("Invalid Promo");
-        }
-      }
-      else {
-        break;
-      }
-     } while (count1 == 0);
-  }
+  // private void promo() {
+  //   Orders order = new Orders();
+  //   Promo[] promo = PromoFactory.showPromo();
+  //   System.out.println("----------------------------------------------------"
+  //       + "----------------------------------------------------------------------");
+  //   System.out.printf("%-15s %-15s %-15s %-15s ", "Vendor ID", "Promo Code", "Date of Coupon", "Promo Status");
+  //   System.out.println();
+  //   System.out.println("----------------------------------------------------"
+  //       + "----------------------------------------------------------------------");
+  //   for (Promo p : promo) {
+  //     System.out.println(p);
+  //     System.out.println();
+  //   }
+  //   String status1;
+  //   int count1 = 0;
+  //   do {
+  //     System.out.println("Enter promo code (yes/No) : ");
+  //     status1 = option.next();
+  //     if (status1.equalsIgnoreCase("YES")) {
+  //       System.out.println("Enter promo code : ");
+  //       String pc = option.next();
+  //       double pamount = 0;
+  //       order.setPromoCode(pc);
+  //       try {
+  //         count1 = PromoFactory.validatePromo(pc, order.getCustomerId());
+  //       } catch (IllegalArgumentException e) {
+  //         System.out.println(e.getMessage());
+  //         mainMenu();
+  //       }
+  //       if (count1 == 1) {
+  //         System.out.println("Promo Applied");
+  //         Promo promoFound = PromoFactory.getPromoInfo(order.getCustomerId(), pc);
+  //         pamount = promoFound.getpromoAmount();
+  //         System.out.println(promoFound.getpromoAmount());
+  //         order.setOrderTotalamount(pamount);
+  //       } else {
+  //         System.out.println("Invalid Promo");
+  //       }
+  //     }
+  //     else {
+  //       break;
+  //     }
+  //    } while (count1 == 0);
+  // }
 
 private void disgft() {
   Freegift[] freegift = FreegiftFactory.showgft();
@@ -179,7 +178,7 @@ private void disgft() {
     gstDemo.setVenId(venId);
     gstDemo.setCgst(gst/2);
     gstDemo.setSgst(gst/2);
-    gstDemo.setMonth(2);
+    gstDemo.setMonthNo(2);
     System.out.println(OrderFactory.payGst(gstDemo));
     // System.out.println(OrderFactory.showgstbyMonth(venId));
   }
@@ -209,7 +208,7 @@ private void disgft() {
     status = option.next();
     System.out.println(OrderFactory.acceptOrRejectOrder(ordId, vendorId, status));
   }
-  private void placeOrder() {
+  private void placeOrder() throws ParseException {
     Orders order = new Orders();
     System.out.println("Enter Customer ID ");
     order.setCustomerId(option.nextInt());

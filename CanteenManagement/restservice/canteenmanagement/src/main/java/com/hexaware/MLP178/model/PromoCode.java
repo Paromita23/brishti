@@ -4,28 +4,9 @@ package com.hexaware.MLP178.model;
 * @author hexware
 */
 public enum PromoCode {
-    /**
-     * Zomato.
-     */
-    ZOMATO, 
-    /**
-     * Food.
-    */
-    FOOD, 
-    /**
-     * Birthday.
-     */
-    BIRTHDAY,
-    /**
-     * Swiggy.
-     */
-    SWIGGY, 
+    
     /**
      * 10% Off.
      */
-    GET10, 
-    /**
-     * 50% off Hexaware offer.
-     */
-    HEXA50
+    FREE10    
 }
