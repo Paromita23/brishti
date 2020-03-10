@@ -32,6 +32,4 @@ public class FreegiftFactory {
     List<Freegift> menu = dao().show();
     return menu.toArray(new Freegift[menu.size()]);
   }
-    
 }
-

@@ -31,12 +31,12 @@ public class Freegift {
   * @param argVenId to initialize food price.
  * @param argGiftStat to initialize food Detail.
 */
-public Freegift(final int argCustId, final int argVenId,final int argGiftStat) {
-this.custId = argCustId;
-this.venId = argVenId;
-this.giftStat = argGiftStat;
-}
-@Override
+  public Freegift (final int argCustId, final int argVenId,final int argGiftStat) {
+    this.custId = argCustId;
+    this.venId = argVenId;
+    this.giftStat = argGiftStat;
+  }
+  @Override
     public final boolean equals(final Object obj) {
     if (obj == null) {
       return false;
@@ -46,7 +46,7 @@ this.giftStat = argGiftStat;
     }
     Freegift menu = (Freegift) obj;
     if (Objects.equals(custId, menu.custId) && Objects.equals(venId, menu.venId)
-        && Objects.equals(giftStat, menu.giftStat) ) {
+        && Objects.equals(giftStat, menu.giftStat)) {
       return true;
     }
     return false;

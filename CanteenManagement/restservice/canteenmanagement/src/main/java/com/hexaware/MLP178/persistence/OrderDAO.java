@@ -95,7 +95,7 @@ public interface OrderDAO {
    * @param order for order details.
    * @return the order single record.
    */
-    @SqlUpdate("INSERT INTO GstDemo(venId, Cgst, Sgst, monthNo) VALUES(:venId, :cgst, :sgst, :monthNo)")
+    @SqlUpdate("INSERT INTO GstDemo(VEN_ID, CGST, SGST, MONTH_NO) VALUES(:venId, :cgst, :sgst, :monthNo)")
     @GetGeneratedKeys
       int payGst(@BindBean GstDemo order);
     /**
@@ -165,7 +165,7 @@ int place(@BindBean Freegift fregft);
     @param cusid for accepting cusid
     @return count for authentication.
      */
-    @SqlQuery("select count(*) from orders where Ord_date=curdate() and cus_id =:cusid;")
+    @SqlQuery("select count(*) from orders where Ord_date between '2020-02-26' AND '2020-03-04' and cus_id =:cusid")
     int placecount(@Bind("cusid") int cusid);
 
      /**

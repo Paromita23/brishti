@@ -43,10 +43,22 @@ public class PromoFactory {
     List<Promo> promo = dao().show();
     return promo.toArray(new Promo[promo.size()]);
   }
+  /**
+   * Call the data base connection.
+   * @param promoCode to show the promo code.
+   * @param cusId to show the customer id.
+   * @return the array of promo object.
+   */
   public static int validatePromo(final String promoCode, final int cusId) {
     int count = dao().authenticate(promoCode, cusId);
     return count;
   }
+  /**
+   * Call the data base connection.
+   * @param promoCode to show the promo code.
+   * @param cusId to show the customer id.
+   * @return the array of promo object.
+   */
   public static Promo getPromoInfo(final int cusId, final String promoCode) {
     Promo count = dao().applyPromo(cusId, promoCode);
     return count;

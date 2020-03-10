@@ -168,9 +168,7 @@ public class OrderFactory {
     System.out.println(order.getOrderDate());
     int value = dao().counts(order.getCustomerId());
     int plcnt = dao().placecount(order.getCustomerId());
-    // double values=dao().counts(order.getCustomerId());
-    // System.out.println(values);
-     double sumamnt= dao().sumofamnt(order.getCustomerId());
+    double sumamnt = dao().sumofamnt(order.getCustomerId());
     // System.out.println(sumamnt);
     long diffTime = order.getOrderDate().getTime() - today.getTime();
     long diffDays = diffTime / (60 * 60 * 1000 * 24);
@@ -186,22 +184,24 @@ public class OrderFactory {
       order.setOrderStatus(OrderStatus.PENDING);
       order.setOrderTotalamount(totalAmount);
       dao().placeOrder(order);
-       dao().updateBalance(diff, order.getWalletType(), order.getCustomerId());
-      if (value == 1){
-          fregft.setGiftStat(0);
-          fregft.setCustId(order.getCustomerId());
-          fregft.setVenId(order.getVendorId());
-          dao().place(fregft);
-        }
-      if( plcnt==2 && sumamnt > 500 && fregft.getGiftStat()==0 ){
-        System.out.println("u r elegilble for offer and u get 5 sweets");
-        int val =1 ;
-        dao().updategft(val,order.getCustomerId());
-        return "congrats";
-      } else{
-        return "You have used the offer";
+      dao().updateBalance(diff, order.getWalletType(), order.getCustomerId());
+      if (value == 1) {
+        System.out.println("You already used this offer....Order placed successfully");
+        fregft.setCustId(order.getCustomerId());
+        fregft.setVenId(order.getVendorId());
+        fregft.setGiftStat(0);
+        dao().place(fregft);
+      } else if (plcnt >= 2 && value == 0 && sumamnt > 500) {
+        // fregft.setCustId(order.getCustomerId());
+        // fregft.setVenId(order.getVendorId());
+        // fregft.setGiftStat(plcnt);
+        int val = 1;
+        System.out.println(dao().updategft(val, order.getCustomerId()));
+        System.out.println("You are eligible for 5 ladoo....Order Placed Successfully...");
+      } else {
+        System.out.println("You are not eligible for getting gift...To get gift place order worth 500 today...Order Placed Successfully... !");
       }
     }
-    //return "Order Placed Successfully For the Registered Address...\nSoon you will be notified by our Vendor...";   
+    return "Order Placed Successfully For the Registered Address...\nSoon you will be notified by our Vendor...";
   }
 }
